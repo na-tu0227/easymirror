@@ -1,20 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\2209009\\Desktop\\easymirror\\",
+  "WorkspaceRootPath": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirorr\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirorr\\Emirorr.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirorr\\commandlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirorr\\Emirorr.csproj|c:\\users\\tosho\\onedrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirorr\\easymirorr\\commandlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirorr\\Emirorr.csproj|solutionrelative:easymirorr\\commandlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Emirorr||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirorr\\Emirorr.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirorr\\mainproc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirorr\\Emirorr.csproj|C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirorr\\easymirorr\\mainproc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirorr\\Emirorr.csproj|solutionrelative:easymirorr\\mainproc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirorr\\Emirorr.csproj|c:\\users\\2209009\\desktop\\easymirror\\easymirorr\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|a54ad834-9219-4aa6-b589-607af21c3e26"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,21 +27,20 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Emirorr",
-              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirorr\\Emirorr.csproj",
+              "DocumentMoniker": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirorr\\easymirorr\\Emirorr.csproj",
               "RelativeDocumentMoniker": "easymirorr\\Emirorr.csproj",
-              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirorr\\Emirorr.csproj",
+              "ToolTip": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirorr\\easymirorr\\Emirorr.csproj",
               "RelativeToolTip": "easymirorr\\Emirorr.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-19T03:53:09.987Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T03:53:09.987Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Mainproc.cs",
-              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirorr\\Mainproc.cs",
+              "DocumentMoniker": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirorr\\easymirorr\\Mainproc.cs",
               "RelativeDocumentMoniker": "easymirorr\\Mainproc.cs",
-              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirorr\\Mainproc.cs",
+              "ToolTip": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirorr\\easymirorr\\Mainproc.cs",
               "RelativeToolTip": "easymirorr\\Mainproc.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -54,9 +50,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "CommandList.cs",
-              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirorr\\CommandList.cs",
+              "DocumentMoniker": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirorr\\easymirorr\\CommandList.cs",
               "RelativeDocumentMoniker": "easymirorr\\CommandList.cs",
-              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirorr\\CommandList.cs",
+              "ToolTip": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirorr\\easymirorr\\CommandList.cs",
               "RelativeToolTip": "easymirorr\\CommandList.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
