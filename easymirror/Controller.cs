@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
@@ -15,10 +16,12 @@ namespace easymirror
         private bool fullscreenFlag = false;
         private bool recordFlag = false;
         private string recPath = @"C:\mirrorApp";  // 録画ファイルと同じフォルダ
+       
 
         public Controller()
         {
             InitializeComponent();
+            
 
 
             // 保存用フォルダがない場合は作成
@@ -30,8 +33,6 @@ namespace easymirror
             // KeyPreviewを有効にしてキーイベントを受け取る
             this.KeyPreview = true;
 
-            // KeyDownイベントのハンドラを登録
-            this.KeyDown += ControllerKeyDown;
         }
 
 
@@ -70,6 +71,7 @@ namespace easymirror
             recordFlag = true;
             CustomSettingButton.Enabled = false;
             RecordButton.Text = "録画停止";
+            recPicture.Visible = true;
             FullscreenButton.Enabled = false;
             this.deviceId = deviceId;
 
@@ -171,6 +173,7 @@ namespace easymirror
                 mainProc.StartScrcpy(deviceId); // 通常モードで再起動
                 FullscreenButton.Enabled = true;
                 CustomSettingButton.Enabled = true;
+                recPicture.Visible = false;
                 RecordButton.Text = "録画開始";
                 MessageBox.Show("録画が停止されました", "録画停止", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
 
@@ -184,6 +187,7 @@ namespace easymirror
                 mainProc.Recording(deviceId);
                 FullscreenButton.Enabled = false;
                 CustomSettingButton.Enabled = false;
+                recPicture.Visible = true;
                 RecordButton.Text = "録画停止";
                 MessageBox.Show("録画が開始されました ", "録画開始", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }

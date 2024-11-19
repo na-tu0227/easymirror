@@ -1,0 +1,17 @@
+C:\Users\tosho\OneDrive\デスクトップ\easymirorrBuild\Debug\MirorrApp.exe.config
+C:\Users\tosho\OneDrive\デスクトップ\easymirorrBuild\Debug\MirorrApp.exe
+C:\Users\tosho\OneDrive\デスクトップ\easymirorrBuild\Debug\MirorrApp.pdb
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.csproj.AssemblyReference.cache
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.Controller.resources
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.CustomSettingWindow.resources
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.MainWindow.resources
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.csproj.GenerateResource.cache
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.csproj.CoreCompileInputs.cache
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.csproj.Up2Date
+C:\Users\tosho\OneDrive\デスクトップ\easymirrorBuild\Debug\easymirror.exe.config
+C:\Users\tosho\OneDrive\デスクトップ\easymirrorBuild\Debug\easymirror.exe
+C:\Users\tosho\OneDrive\デスクトップ\easymirrorBuild\Debug\easymirror.pdb
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.CustomMessageBox.resources
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.Properties.Resources.resources
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.exe
+C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Debug\easymirror.pdb

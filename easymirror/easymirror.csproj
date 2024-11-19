@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{66B21B87-E9F3-4798-A110-FEC39989CDDC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MirorrApp</RootNamespace>
-    <AssemblyName>MirorrApp</AssemblyName>
+    <RootNamespace>easymirror</RootNamespace>
+    <AssemblyName>easymirror</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\..\easymirorrBuild\Debug\</OutputPath>
+    <OutputPath>..\..\easymirrorBuild\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -44,7 +44,7 @@
     <WarningLevel>5</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>..\..\easymirorrBuild\Relese\</OutputPath>
+    <OutputPath>..\..\easymirrorBuild\Relese\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>none</DebugType>
@@ -96,6 +96,11 @@
     <Compile Include="Controller.Designer.cs">
       <DependentUpon>Controller.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomMessageBox.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomMessageBox.resx</DependentUpon>
+    </Compile>
     <Compile Include="CustomSettingWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,7 +126,10 @@
     <EmbeddedResource Include="Controller.resx">
       <DependentUpon>Controller.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomMessageBox.resx" />
+    <EmbeddedResource Include="CustomMessageBox.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CustomMessageBox.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomSettingWindow.resx">
       <DependentUpon>CustomSettingWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\録画開始 %28カスタム%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

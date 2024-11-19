@@ -30,14 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Controller));
-            this.FullscreenButton = new System.Windows.Forms.Button();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.FullscreenButton = new System.Windows.Forms.Button();
             this.RecordButton = new System.Windows.Forms.Button();
             this.ScreenshotButton = new System.Windows.Forms.Button();
             this.FolderButton = new System.Windows.Forms.Button();
             this.SaveRewindRecording = new System.Windows.Forms.Button();
             this.CustomSettingButton = new System.Windows.Forms.Button();
+            this.recPicture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.recPicture)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ToolTip
+            // 
+            this.ToolTip.BackColor = System.Drawing.SystemColors.HighlightText;
             // 
             // FullscreenButton
             // 
@@ -45,7 +51,7 @@
             this.FullscreenButton.BackgroundImage = global::easymirror.Properties.Resources.全画面アイコン;
             this.FullscreenButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.FullscreenButton.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.FullscreenButton.Location = new System.Drawing.Point(215, 37);
+            this.FullscreenButton.Location = new System.Drawing.Point(215, 44);
             this.FullscreenButton.Name = "FullscreenButton";
             this.FullscreenButton.Size = new System.Drawing.Size(35, 35);
             this.FullscreenButton.TabIndex = 0;
@@ -54,15 +60,11 @@
             this.FullscreenButton.Click += new System.EventHandler(this.FullscreenButtonClick);
             this.FullscreenButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ControllerKeyDown);
             // 
-            // ToolTip
-            // 
-            this.ToolTip.BackColor = System.Drawing.SystemColors.HighlightText;
-            // 
             // RecordButton
             // 
-            this.RecordButton.Location = new System.Drawing.Point(160, 94);
+            this.RecordButton.Location = new System.Drawing.Point(136, 94);
             this.RecordButton.Name = "RecordButton";
-            this.RecordButton.Size = new System.Drawing.Size(90, 43);
+            this.RecordButton.Size = new System.Drawing.Size(114, 43);
             this.RecordButton.TabIndex = 1;
             this.RecordButton.Text = "録画開始";
             this.RecordButton.UseVisualStyleBackColor = true;
@@ -70,19 +72,20 @@
             // 
             // ScreenshotButton
             // 
-            this.ScreenshotButton.Location = new System.Drawing.Point(160, 157);
+            this.ScreenshotButton.Font = new System.Drawing.Font("MS UI Gothic", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ScreenshotButton.Location = new System.Drawing.Point(136, 157);
             this.ScreenshotButton.Name = "ScreenshotButton";
-            this.ScreenshotButton.Size = new System.Drawing.Size(90, 40);
+            this.ScreenshotButton.Size = new System.Drawing.Size(114, 40);
             this.ScreenshotButton.TabIndex = 2;
-            this.ScreenshotButton.Text = "スクショ";
+            this.ScreenshotButton.Text = "スクリーンショット";
             this.ScreenshotButton.UseVisualStyleBackColor = true;
             this.ScreenshotButton.Click += new System.EventHandler(this.ScreenshotButtonClick);
             // 
             // FolderButton
             // 
-            this.FolderButton.Location = new System.Drawing.Point(160, 230);
+            this.FolderButton.Location = new System.Drawing.Point(136, 230);
             this.FolderButton.Name = "FolderButton";
-            this.FolderButton.Size = new System.Drawing.Size(90, 40);
+            this.FolderButton.Size = new System.Drawing.Size(114, 40);
             this.FolderButton.TabIndex = 3;
             this.FolderButton.Text = "フォルダー";
             this.FolderButton.UseVisualStyleBackColor = true;
@@ -109,12 +112,25 @@
             this.CustomSettingButton.UseVisualStyleBackColor = true;
             this.CustomSettingButton.Click += new System.EventHandler(this.CustomSetting_Click);
             // 
+            // recPicture
+            // 
+            this.recPicture.Enabled = false;
+            this.recPicture.Image = global::easymirror.Properties.Resources.録画開始__カスタム_;
+            this.recPicture.Location = new System.Drawing.Point(12, 35);
+            this.recPicture.Name = "recPicture";
+            this.recPicture.Size = new System.Drawing.Size(138, 53);
+            this.recPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.recPicture.TabIndex = 6;
+            this.recPicture.TabStop = false;
+            this.recPicture.Visible = false;
+            // 
             // Controller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(262, 554);
+            this.Controls.Add(this.recPicture);
             this.Controls.Add(this.CustomSettingButton);
             this.Controls.Add(this.SaveRewindRecording);
             this.Controls.Add(this.FolderButton);
@@ -125,6 +141,7 @@
             this.Name = "Controller";
             this.Text = "Controller";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ControllerFormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.recPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -138,5 +155,6 @@
         private System.Windows.Forms.Button FolderButton;
         private System.Windows.Forms.Button SaveRewindRecording;
         private System.Windows.Forms.Button CustomSettingButton;
+        private System.Windows.Forms.PictureBox recPicture;
     }
 }
