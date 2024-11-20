@@ -22,7 +22,7 @@ namespace easymirror
 
         ErrorProvider errorProvider = new ErrorProvider();
 
-        //コンストラクター
+       
         public CustomSettingWindow()
         {
 
