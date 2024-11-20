@@ -10,3 +10,15 @@ C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Release
 C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Release\easymirror.csproj.CoreCompileInputs.cache
 C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Release\easymirror.csproj.Up2Date
 C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Release\MirorrApp.exe
+C:\Users\2209009\Desktop\easymirrorBuild\Relese\easymirror.exe.config
+C:\Users\2209009\Desktop\easymirrorBuild\Relese\easymirror.exe
+C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Release\easymirror.csproj.AssemblyReference.cache
+C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Release\easymirror.Controller.resources
+C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Release\easymirror.CustomMessageBox.resources
+C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Release\easymirror.CustomSettingWindow.resources
+C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Release\easymirror.MainWindow.resources
+C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Release\easymirror.Properties.Resources.resources
+C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Release\easymirror.csproj.GenerateResource.cache
+C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Release\easymirror.csproj.CoreCompileInputs.cache
+C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Release\easymirror.csproj.Up2Date
+C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Release\easymirror.exe

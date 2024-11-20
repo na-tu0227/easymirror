@@ -10,25 +10,15 @@ namespace easymirror
     public partial class Controller : Form
     {
         private MainProc mainProc;
-        private WirelessProc wirelessProc;
         private bool isWirelessInitialized = false;
         private string deviceId;
         private bool fullscreenFlag = false;
         private bool recordFlag = false;
-        private string recPath = @"C:\mirrorApp";  // 録画ファイルと同じフォルダ
-       
+
 
         public Controller()
         {
             InitializeComponent();
-            
-
-
-            // 保存用フォルダがない場合は作成
-            if (!Directory.Exists(recPath))
-            {
-                Directory.CreateDirectory(recPath);
-            }
 
             // KeyPreviewを有効にしてキーイベントを受け取る
             this.KeyPreview = true;
@@ -36,22 +26,19 @@ namespace easymirror
         }
 
 
-        public void GetMainProc(MainProc mainProc, string deviceId ,bool isWirelessInitialized)
+        public void GetMainProc(MainProc mainProc, string deviceId, bool isWirelessInitialized)
         {
             this.mainProc = mainProc;
             this.deviceId = deviceId;
             this.isWirelessInitialized = isWirelessInitialized;
 
         }
-        public void GetWirelessProc(WirelessProc wirelessProc, string ipAddress ,bool isWirelessInitialized)
+        public void GetWirelessProc(WirelessManager wirelessProc, string ipAddress, bool isWirelessInitialized)
         {
-            this.wirelessProc = wirelessProc;
+
             this.isWirelessInitialized = isWirelessInitialized;
             this.deviceId = ipAddress;
-            if (mainProc != null)
-            {
-                mainProc = null;
-            }
+
         }
 
         public void StartFull(string deviceId)
@@ -97,16 +84,10 @@ namespace easymirror
         {
             MainWindow main = new MainWindow();
             main.Show();
-            if(mainProc != null && !isWirelessInitialized)
-            {
-                mainProc.StopScrcpy();
-            }
-            
-            if (isWirelessInitialized)
-            {  
-                wirelessProc.WirelessStop();
-                
-            }
+
+            mainProc.StopScrcpy();
+
+
 
 
 
@@ -129,15 +110,17 @@ namespace easymirror
         //フォルダーを開く
         private void FolderButtonClick(object sender, EventArgs e)
         {
+
             mainProc.OpenFolder();
 
         }
 
 
         //スクリーンショット撮影
-        private void ScreenshotButtonClick(object sender, EventArgs e)
+        private async void  ScreenshotButtonClick(object sender, EventArgs e)
         {
-            mainProc.Screenshot();
+
+           await mainProc.ScreenshotAsync();
         }
 
 
@@ -155,16 +138,10 @@ namespace easymirror
         {
             this.Hide();
 
-            if (mainProc != null)
-            {
-                mainProc.StopScrcpy();
-            }
-            if(wirelessProc != null && mainProc == null)
-            {
-                wirelessProc.WirelessStop();
-                mainProc = new MainProc();
-                
-            }
+
+            mainProc.StopScrcpy();
+
+
 
 
 
@@ -181,7 +158,7 @@ namespace easymirror
 
             }
             else
-            { 
+            {
 
                 // Scrcpyで録画を開始
                 mainProc.Recording(deviceId);
@@ -208,16 +185,7 @@ namespace easymirror
             this.Hide();
 
 
-            if (mainProc != null)
-            {
-                mainProc.StopScrcpy();
-            }
-            if (wirelessProc != null || mainProc == null)
-            {
-                wirelessProc.WirelessStop();
-                mainProc = new MainProc();
-                
-            }
+            mainProc.StopScrcpy();
 
 
 
@@ -258,14 +226,9 @@ namespace easymirror
         {
             this.Hide();
             CustomSettingWindow customSettingWindow = new CustomSettingWindow();
-            if (mainProc != null)
-            {
-                customSettingWindow.GetControllerMainProc(mainProc, deviceId, isWirelessInitialized,this);
-            }
-            if (wirelessProc != null)
-            {
-                customSettingWindow.GetControllerWirelessProc(wirelessProc, deviceId, isWirelessInitialized,this);
-            }
+
+            customSettingWindow.GetControllerMainProc(mainProc, deviceId, isWirelessInitialized, this);
+
 
             customSettingWindow.ShowDialog();
 

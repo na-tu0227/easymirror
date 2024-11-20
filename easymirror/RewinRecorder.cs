@@ -40,7 +40,7 @@ namespace easymirror
             cancellationTokenSource?.Cancel();
         }
 
-        // ショートカットやリモコンのボタンで呼び出され、バッファを保存する
+        // リモコンのボタンで呼び出され、バッファを保存する
         public async Task SaveBufferedRecordingAsync(string filePath)
         {
             var directory = Path.GetDirectoryName(filePath);

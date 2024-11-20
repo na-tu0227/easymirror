@@ -122,7 +122,6 @@
     <Compile Include="RewinRecorder.cs" />
     <Compile Include="Screenshot.cs" />
     <Compile Include="WirelessManager.cs" />
-    <Compile Include="WirelessProc.cs" />
     <EmbeddedResource Include="Controller.resx">
       <DependentUpon>Controller.cs</DependentUpon>
     </EmbeddedResource>

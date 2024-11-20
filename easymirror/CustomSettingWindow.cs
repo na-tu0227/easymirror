@@ -13,7 +13,7 @@ namespace easymirror
     public partial class CustomSettingWindow : Form
     {
         private MainProc mainProc;
-        private WirelessProc wirelessProc;
+        private WirelessManager wirelessManager;
         private Controller controller;
         private DeviceManager deviceManager;
         private string deviceId, fps, bitrate, buffer, size, display, movie, audio;
@@ -25,8 +25,9 @@ namespace easymirror
         //コンストラクター
         public CustomSettingWindow()
         {
-           
+
             controller = new Controller();
+            mainProc = new MainProc();
             deviceManager = new DeviceManager(".\\scrcpy\\adb.exe");  // adbパスを適宜指定
             // アイコンを点滅なしに設定する
             errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
@@ -54,10 +55,10 @@ namespace easymirror
         }
 
         //コントローラーの情報からWirelessProcプロセスを取得
-        public void GetControllerWirelessProc(WirelessProc wirelessproc, String ipAdress, bool isWirelessInitialized, Controller controller)
+        public void GetControllerWirelessProc(WirelessManager wirelessproc, String ipAdress, bool isWirelessInitialized, Controller controller)
         {
             this.controller = controller;
-            this.wirelessProc = wirelessproc;
+            this.wirelessManager = wirelessproc;
             deviceId = ipAdress;
             this.isWirelessInitialized = isWirelessInitialized;
             WirelessKillButton.Enabled = isWirelessInitialized;
@@ -103,14 +104,9 @@ namespace easymirror
             }
             else
             {
-                if (mainProc != null)
-                {
-                    controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);
-                }
-                if (wirelessProc != null)
-                {
-                    controller.GetWirelessProc(wirelessProc, deviceId, isWirelessInitialized);
-                }
+                controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);
+
+
                 controller.Show();
 
             }
@@ -318,12 +314,11 @@ namespace easymirror
 
             if (dialogResult == DialogResult.OK)
             {
-                wirelessProc.WirelessDisconnect(deviceId);
+                wirelessManager.WirelessDisconnect(deviceId);
                 WirelessKillButton.Enabled = false;
                 WirelessButton.Enabled = true;
                 WirelessButton.Checked = false;
-                
-                wirelessProc = null;
+                wirelessManager = null;
                 isWirelessInitialized = false; // WirelessKill時に再初期化フラグをリセット
                 MessageBox.Show("無線接続を切断しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
@@ -469,10 +464,10 @@ namespace easymirror
                 {
                     mainProc?.StopScrcpy();
                     mainProc?.AdbRestart();
-                    wirelessProc = new WirelessProc();
+                    wirelessManager = new WirelessManager();
 
                     // 初回IPアドレス取得
-                    deviceId = wirelessProc.GetIPAddressADB(deviceId);
+                    deviceId = wirelessManager.GetIPAddressADB(deviceId);
                     isWirelessInitialized = true;
 
 
@@ -480,22 +475,22 @@ namespace easymirror
 
                     if (CustomRecordButton.Checked)
                     {
-                        wirelessProc.CustomRecordWirelessStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
+                        mainProc.StartRecordWireless(deviceId, fps, bitrate, buffer, size, display, movie, audio);
                         controller.StartRec(deviceId);
 
                     }
                     else
                     {
-                        wirelessProc.CustomWirelessStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
+                        mainProc.StartWireless(deviceId, fps, bitrate, buffer, size, display, movie, audio);
 
                     }
-                    controller.GetWirelessProc(wirelessProc, deviceId, isWirelessInitialized);
+                    controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);
                     controller.Show();
 
                 }
                 else
                 {
-                    if(mainProc != null)
+                    if (mainProc != null)
                     {
                         mainProc.StopScrcpy();
                     }
@@ -503,14 +498,14 @@ namespace easymirror
                     // 無線接続が既に起動されている場合は、設定の再起動のみを行う
                     if (CustomRecordButton.Checked)
                     {
-                        
-                        wirelessProc.CustomRecordWirelessReStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
+
+                        mainProc.CustomRecordStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
                         controller.StartRec(deviceId);
                     }
                     else
                     {
-                        
-                        wirelessProc.CustomWirelessReStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
+
+                        mainProc.CustomStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
 
                     }
                     if (display.Equals("-f"))
@@ -518,7 +513,7 @@ namespace easymirror
                         controller.StartFull(deviceId);
                     }
 
-                    controller.GetWirelessProc(wirelessProc, deviceId, isWirelessInitialized);
+                    controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);
                     controller.Show();
                 }
             }
@@ -526,11 +521,10 @@ namespace easymirror
             //有線接続
             else if (deviceManager.DeviceConnected() && !string.IsNullOrEmpty(deviceId))
             {
-                if (mainProc != null)
-                {
-                    mainProc?.StopScrcpy();
-                    mainProc?.AdbRestart();
-                }
+
+                mainProc?.StopScrcpy();
+                mainProc?.AdbRestart();
+
 
 
                 mainProc = new MainProc();

@@ -49,7 +49,6 @@ namespace easymirror
             //リストの生成
             List<(string id, string name)> deviceDetails = new List<(string id, string name)>();
             Process adbProcess = null;
-
             try
             {
                 //adbプロセスの生成
