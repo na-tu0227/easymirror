@@ -135,7 +135,7 @@ Copyright (C) 2024 na_tu0227
 ver.0.5.1 
 ・[docs]Readme更新
 ・[feat]録画をしている時に録画アイコンを表示するように変更。
-・[fix refactor] 無線機能のソースコードをリファクタリングしましたWirelessProcからプロセスを呼び出していたのをMainProcで呼び出すように修正。この修正により無線関連で発生していたバグとコード内の多数のnullチェックが無くなります。
+・[fix refactor] 無線機能のソースコードをリファクタリングの実施。WirelessProcからプロセスを呼び出していたのをMainProcで呼び出すように修正、nullチェックも無くなる。
 </pre>
 
 
