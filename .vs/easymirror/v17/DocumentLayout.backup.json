@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\easymirror\\wirelessmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\wirelessmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|c:\\users\\tosho\\onedrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\easymirror\\mainproc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\mainproc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\easymirror\\wirelessmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\wirelessmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\easymirror\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CustomSettingWindow.cs",
               "DocumentMoniker": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\easymirror\\CustomSettingWindow.cs",
               "RelativeDocumentMoniker": "easymirror\\CustomSettingWindow.cs",
@@ -71,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Mainproc.cs",
               "DocumentMoniker": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\easymirror\\Mainproc.cs",
               "RelativeDocumentMoniker": "easymirror\\Mainproc.cs",
@@ -83,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Controller.cs",
               "DocumentMoniker": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\easymirror\\Controller.cs",
               "RelativeDocumentMoniker": "easymirror\\Controller.cs",
@@ -95,15 +95,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "WirelessManager.cs",
               "DocumentMoniker": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\easymirror\\WirelessManager.cs",
               "RelativeDocumentMoniker": "easymirror\\WirelessManager.cs",
               "ToolTip": "C:\\Users\\tosho\\OneDrive\\\u30C7\u30B9\u30AF\u30C8\u30C3\u30D7\\easymirror\\easymirror\\WirelessManager.cs",
               "RelativeToolTip": "easymirror\\WirelessManager.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAAEsAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T02:45:18.926Z"
+              "WhenOpened": "2024-11-20T02:45:18.926Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

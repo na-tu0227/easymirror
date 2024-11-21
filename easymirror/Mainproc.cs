@@ -24,7 +24,7 @@ namespace easymirror
 
         private String scrcpyPath = ".\\scrcpy\\scrcpy.exe";
         private String adbPath = ".\\scrcpy\\adb.exe";
-        private String recPath = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos) + "\\MirorrApp";
+        private String recPath = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos) + "\\easymirror";
         private String jsonPath = ".\\CommandList.json";
 
 
