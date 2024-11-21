@@ -136,6 +136,8 @@ ver.0.5.1
 ・[docs]Readme更新
 ・[feat]録画をしている時に録画アイコンを表示するように変更。
 ・[fix refactor] 無線機能のソースコードをリファクタリングの実施。WirelessProcからプロセスを呼び出していたのをMainProcで呼び出すように修正、nullチェックも無くなる。
+・[fix]スクリーンショット撮影方法変更adbコマンドで画像のバイナリーデータを取得し保存する。
+・[fix]録画ファイル名称変更[MirrorApp] → [easymirror]
 </pre>
 
 
