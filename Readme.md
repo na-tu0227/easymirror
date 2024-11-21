@@ -122,7 +122,7 @@ https://github.com/Genymobile/scrcpy
 修正や更新も、責任を負わないこととします。  
 使用にあたっては、自己責任でお願いします。 
 
-何かあれば[アンケートフォーム](https://forms.gle/xqppvi1PdnVyThGj7)か、githubの[issues](
+何かあれば[アンケートフォーム](https://forms.gle/xqppvi1PdnVyThGj7)か、githubの[issues](https://github.com/na-tu0227/easymirror/issues)までお願いします。
 
 
 ## ■著作権表示
@@ -131,10 +131,12 @@ Copyright (C) 2024 na_tu0227
 自分が書いた部分のソースコードは、MIT Licenseとします。
 
 ## ■更新状況
-ver.0.5.1  [docs]Readme更新、[feat]録画をしている時に
-	　 録画アイコンを表示するように変更。[fix refactor] 無線機能の改善。
-        　WirelessProcからプロセスを呼び出していたのをMainProcで呼び出すように修正。
-        　この修正により無線関連で発生していたバグとコード内の多数のnullチェックが無くなる。
+<pre>
+ver.0.5.1 
+・[docs]Readme更新
+・[feat]録画をしている時に録画アイコンを表示するように変更。
+・[fix refactor] 無線機能のソースコードをリファクタリングしましたWirelessProcからプロセスを呼び出していたのをMainProcで呼び出すように修正。この修正により無線関連で発生していたバグとコード内の多数のnullチェックが無くなります。
+</pre>
 
 
 
