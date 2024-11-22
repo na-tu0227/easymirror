@@ -104,7 +104,7 @@
             // 
             // CustomSettingButton
             // 
-            this.CustomSettingButton.Location = new System.Drawing.Point(136, 367);
+            this.CustomSettingButton.Location = new System.Drawing.Point(136, 372);
             this.CustomSettingButton.Name = "CustomSettingButton";
             this.CustomSettingButton.Size = new System.Drawing.Size(118, 38);
             this.CustomSettingButton.TabIndex = 5;
