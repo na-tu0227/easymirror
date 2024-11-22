@@ -29,7 +29,6 @@ namespace easymirror
             controller = new Controller();
             mainProc = new MainProc();
             deviceManager = new DeviceManager(".\\scrcpy\\adb.exe");  // adbパスを適宜指定
-            // アイコンを点滅なしに設定する
             errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             InitializeComponent();
         }
@@ -42,7 +41,7 @@ namespace easymirror
         }
 
 
-        //MainProcからプロセスを取得
+        //MainProcからプロセスと各種値を取得
         public void GetControllerMainProc(MainProc mainproc, String deviceId, bool isWirelessInitialized, Controller controller)
         {
             this.controller = controller;
@@ -92,9 +91,6 @@ namespace easymirror
         //Windowの閉じる処理
         private void CustomSettingWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-
-
             if (isMainWindowAccess)
             {
                 // メインウィンドウからアクセスされた場合はメインウィンドウを表示
@@ -303,6 +299,7 @@ namespace easymirror
 
         }
 
+        //無線接続の停止
         private void WirelessKill_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("無線接続を切断しますか？（スマートフォンの映像も切断されます。）",
@@ -328,7 +325,7 @@ namespace easymirror
 
         //映像、音声関連の処理
         //コンボボックスからのデータ取得処理
-        private void selectConboBox()
+        private void SelectConboBox()
         {
             switch (movieCodec.SelectedIndex)
             {
@@ -448,7 +445,7 @@ namespace easymirror
 
             // サイズとエンコード設定の取得
             sizeGroupproc();
-            selectConboBox();
+            SelectConboBox();
 
             MessageBox.Show("USB接続を行いデバッグモードを有効にしてください。", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information,
                             MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
@@ -484,6 +481,15 @@ namespace easymirror
                         mainProc.StartWireless(deviceId, fps, bitrate, buffer, size, display, movie, audio);
 
                     }
+                    if (display.Equals("-f") && CustomRecordButton.Checked)
+                    {
+
+                    }
+                    else if (display.Equals("-f"))
+                    {
+
+                        controller.StartFull(deviceId);
+                    }
                     controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);
                     controller.Show();
 
@@ -508,8 +514,12 @@ namespace easymirror
                         mainProc.CustomStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
 
                     }
-                    if (display.Equals("-f"))
+                    if (display.Equals("-f") && CustomRecordButton.Checked)
                     {
+                      
+                    }
+                    else if (display.Equals("-f")){
+
                         controller.StartFull(deviceId);
                     }
 
@@ -547,11 +557,15 @@ namespace easymirror
 
                 }
                 controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);  // MainProcとデバイスIdをControllerに渡す
-                if (display.Equals("-f"))
+                if (display.Equals("-f") && CustomRecordButton.Checked)
                 {
+
+                }
+                else if (display.Equals("-f"))
+                {
+
                     controller.StartFull(deviceId);
                 }
-
                 controller.Show();
             }
 

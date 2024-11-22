@@ -159,7 +159,6 @@ namespace easymirror
             }
             else
             {
-
                 // Scrcpyで録画を開始
                 mainProc.Recording(deviceId);
                 FullscreenButton.Enabled = false;
