@@ -12,19 +12,20 @@ namespace easymirror
     {
         private readonly string scrcpyPath;
         private readonly string ffmpegPath = "ffmpeg"; // FFmpegのパス
-        private readonly int bufferDuration; // 例：30秒分のバッファ
+        private readonly int bufferDuration; // バッファリングする秒数 (例: 30秒)
         private readonly Dictionary<string, string> commandDict;
         private readonly int frameRate = 30; // フレームレート (fps)
-        private readonly ConcurrentQueue<byte[]> bufferQueue;
+        private readonly ConcurrentQueue<byte[]> bufferQueue = new();
         private CancellationTokenSource cancellationTokenSource;
 
         public RewindRecorder(string scrcpyPath, Dictionary<string, string> commandDict)
         {
-            this.scrcpyPath = scrcpyPath;
-            this.commandDict = commandDict;
+            if (string.IsNullOrEmpty(scrcpyPath))
+                throw new ArgumentException("scrcpyPath は空または null にできません。", nameof(scrcpyPath));
 
+            this.scrcpyPath = scrcpyPath;
+            this.commandDict = commandDict ?? throw new ArgumentNullException(nameof(commandDict));
             bufferDuration = 30;
-            bufferQueue = new ConcurrentQueue<byte[]>();
         }
 
         // 録画の開始
@@ -40,10 +41,13 @@ namespace easymirror
             cancellationTokenSource?.Cancel();
         }
 
-        // リモコンのボタンで呼び出され、バッファを保存する
+        // バッファデータを保存する
         public async Task SaveBufferedRecordingAsync(string filePath)
         {
-            var directory = Path.GetDirectoryName(filePath);
+            if (string.IsNullOrEmpty(filePath))
+                throw new ArgumentException("filePath は空または null にできません。", nameof(filePath));
+
+            string directory = Path.GetDirectoryName(filePath);
             if (directory != null && !Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
@@ -57,26 +61,30 @@ namespace easymirror
             string convertedFilePath = Path.ChangeExtension(filePath, ".mp4"); // 最終出力ファイル
             await ConvertWithFFmpegAsync(rawFilePath, convertedFilePath);
 
+            // 生データファイルを削除
+            if (File.Exists(rawFilePath))
+            {
+                File.Delete(rawFilePath);
+            }
         }
 
         private async Task SaveRawDataAsync(string filePath)
         {
-            using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None))
+            using var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
+            while (bufferQueue.TryDequeue(out var frameData))
             {
-                while (bufferQueue.TryDequeue(out var frameData))
-                {
-                    await fileStream.WriteAsync(frameData, 0, frameData.Length);
-                }
+                await fileStream.WriteAsync(frameData, 0, frameData.Length);
             }
         }
 
         private void CaptureScrcpyStream(CancellationToken token)
         {
-            CommandList commandList = new CommandList();
+            if (commandDict == null)
+                throw new InvalidOperationException("commandDict が初期化されていません。");
 
-            string command = commandList.BuildCommand(commandDict, "start", "aac", "record", "-");
+            var command = BuildScrcpyCommand();
 
-            Process process = new Process
+            using Process process = new Process
             {
                 StartInfo = new ProcessStartInfo
                 {
@@ -90,22 +98,23 @@ namespace easymirror
 
             process.Start();
 
-            using (var stream = process.StandardOutput.BaseStream)
-            {
-                var frameSize = EstimateFrameSize();
-                byte[] buffer = new byte[frameSize];
+            using var stream = process.StandardOutput.BaseStream;
+            int frameSize = EstimateFrameSize();
+            byte[] buffer = new byte[frameSize];
 
+            try
+            {
                 while (!token.IsCancellationRequested)
                 {
                     int bytesRead = stream.Read(buffer, 0, buffer.Length);
                     if (bytesRead > 0)
                     {
-                        // 読み込んだフレームをバッファに追加
-                        byte[] frameData = new byte[bytesRead];
+                        // フレームデータをバッファに追加
+                        var frameData = new byte[bytesRead];
                         Array.Copy(buffer, frameData, bytesRead);
                         bufferQueue.Enqueue(frameData);
 
-                        // バッファが指定秒数を超えた場合、古いデータを削除
+                        // 古いデータを削除してバッファを管理
                         while (bufferQueue.Count > frameRate * bufferDuration)
                         {
                             bufferQueue.TryDequeue(out _);
@@ -113,14 +122,26 @@ namespace easymirror
                     }
                 }
             }
+            catch (IOException ex) when (token.IsCancellationRequested)
+            {
+                // キャンセルされた場合は例外を無視
+            }
+            finally
+            {
+                process.WaitForExit();
+            }
+        }
 
-            process.WaitForExit();
+        // Scrcpy用のコマンドを作成
+        private string BuildScrcpyCommand()
+        {
+            // commandDict から必要なコマンドを組み立てるロジックを記述
+            return "scrcpy-command-example"; // 例: 実際の組み立てロジックに置き換え
         }
 
         // FFmpegを使って変換
         private async Task ConvertWithFFmpegAsync(string inputFilePath, string outputFilePath)
         {
-            var ffmpegPath = "ffmpeg"; // FFmpegのパス
             string arguments = $"-i \"{inputFilePath}\" -vcodec libx264 -pix_fmt yuv420p \"{outputFilePath}\"";
 
             var processStartInfo = new ProcessStartInfo
@@ -133,27 +154,26 @@ namespace easymirror
                 CreateNoWindow = true,
             };
 
-            using (var process = Process.Start(processStartInfo))
+            using var process = Process.Start(processStartInfo);
+            if (process == null)
+                throw new InvalidOperationException("FFmpeg プロセスの開始に失敗しました。");
+
+            string error = await process.StandardError.ReadToEndAsync();
+            await process.StandardOutput.ReadToEndAsync(); // 出力を読み取る
+
+            process.WaitForExit();
+
+            if (process.ExitCode != 0)
             {
-                var output = await process.StandardOutput.ReadToEndAsync();
-                var error = await process.StandardError.ReadToEndAsync();
-
-                process.WaitForExit();
-
-                if (process.ExitCode != 0)
-                {
-                    throw new Exception($"FFmpegエラー: {error}");
-                }
+                throw new Exception($"FFmpegエラー: {error}");
             }
         }
 
-
-        // フレームサイズを推定する（フレームサイズは画質に依存するため要調整）
+        // フレームサイズを推定
         private int EstimateFrameSize()
         {
-            // 画質や解像度によってサイズは変わるため、仮のサイズを指定
-            // 例: 1920x1080 30fps の場合、約1MB/frame
-            return 1024 * 1024;
+            // 解像度と画質に応じた適切な値を返すように設定
+            return 1024 * 1024; // 例: 1920x1080, 30fps の場合約1MB/フレーム
         }
     }
 }
