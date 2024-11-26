@@ -73,49 +73,49 @@ namespace easymirror
         private void CaptureScrcpyStream(CancellationToken token)
         {
             CommandList commandList = new CommandList();
+            string command = commandList.BuildCommand(commandDict, "start", "aac", "record", "rec.mp4");
 
-            string command = commandList.BuildCommand(commandDict, "start", "aac", "record", "-");
-
-            Process process = new Process
+            var processStartInfo = new ProcessStartInfo
             {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = scrcpyPath,
-                    Arguments = command,
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    CreateNoWindow = true
-                }
+                FileName = scrcpyPath,
+                Arguments = command,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                CreateNoWindow = true
             };
 
-            process.Start();
-
-            using (var stream = process.StandardOutput.BaseStream)
+            using (var process = Process.Start(processStartInfo))
             {
-                var frameSize = EstimateFrameSize();
-                byte[] buffer = new byte[frameSize];
-
-                while (!token.IsCancellationRequested)
+                using (var stream = process.StandardOutput.BaseStream)
                 {
-                    int bytesRead = stream.Read(buffer, 0, buffer.Length);
-                    if (bytesRead > 0)
+                    var buffer = new byte[1024 * 64]; // チャンク単位で処理
+                    while (!token.IsCancellationRequested)
                     {
-                        // 読み込んだフレームをバッファに追加
-                        byte[] frameData = new byte[bytesRead];
-                        Array.Copy(buffer, frameData, bytesRead);
-                        bufferQueue.Enqueue(frameData);
-
-                        // バッファが指定秒数を超えた場合、古いデータを削除
-                        while (bufferQueue.Count > frameRate * bufferDuration)
+                        int bytesRead = stream.Read(buffer, 0, buffer.Length);
+                        if (bytesRead > 0)
                         {
-                            bufferQueue.TryDequeue(out _);
+                            byte[] frameData = new byte[bytesRead];
+                            Array.Copy(buffer, frameData, bytesRead);
+                            bufferQueue.Enqueue(frameData);
+
+                            // バッファのサイズ管理（データサイズベース）
+                            while (bufferQueue.Count > frameRate * bufferDuration)
+                            {
+                                bufferQueue.TryDequeue(out _);
+                            }
                         }
                     }
                 }
-            }
 
-            process.WaitForExit();
+                // プロセス終了時にエラーを確認
+                if (!process.WaitForExit(5000) || process.ExitCode != 0)
+                {
+                    throw new Exception($"Scrcpyが予期せず終了しました: {process.ExitCode}");
+                }
+            }
         }
+
 
         // FFmpegを使って変換
         private async Task ConvertWithFFmpegAsync(string inputFilePath, string outputFilePath)
