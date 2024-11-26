@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // アセンブリに関する一般的な情報は、次の方法で制御されます
 // 制御されます。アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更します。
-[assembly: AssemblyTitle("MirorrApp")]
+[assembly: AssemblyTitle("easymirror")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MirorrApp")]
+[assembly: AssemblyProduct("easymirror")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

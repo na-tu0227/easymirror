@@ -60,7 +60,6 @@
             // RewindRecording
             // 
             this.RewindRecording.AutoSize = true;
-            this.RewindRecording.Enabled = false;
             this.RewindRecording.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.RewindRecording.Location = new System.Drawing.Point(66, 114);
             this.RewindRecording.Name = "RewindRecording";

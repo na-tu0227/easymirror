@@ -99,7 +99,6 @@
             this.SaveRewindRecording.TabIndex = 4;
             this.SaveRewindRecording.Text = "巻き戻し録画";
             this.SaveRewindRecording.UseVisualStyleBackColor = true;
-            this.SaveRewindRecording.Visible = false;
             this.SaveRewindRecording.Click += new System.EventHandler(this.SaveRewindRecording_Click);
             // 
             // CustomSettingButton
