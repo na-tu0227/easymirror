@@ -70,7 +70,7 @@ namespace easymirror
             fps = "60";
             bitrate = "8M";
             size = "1024";
-            buffer = "--display-buffer=0";
+            buffer = "--video-buffer=0";
             display = "";
             movieCodec.SelectedIndex = 0;
             audioCodec.SelectedIndex = 0;
@@ -226,7 +226,7 @@ namespace easymirror
 
                 if (castBuffer == 0)
                 {
-                    buffer = "--display-buffer=0";
+                    buffer = "--video-buffer=0";
                     errorProvider.SetError(videoBuffer, "");
                     videoBuffer.BackColor = Color.White;
                     return buffer;
@@ -236,7 +236,7 @@ namespace easymirror
                 {
 
                     videoBuffer.Text = "0"; // デフォルトの値に戻す
-                    buffer = "--display-buffer=0";
+                    buffer = "--video-buffer=0";
 
                     videoBuffer.SelectionStart = videoBuffer.Text.Length;
                     errorProvider.SetError(videoBuffer, "規定内の数値を入力してください");
@@ -247,7 +247,7 @@ namespace easymirror
                 else
                 {
                     // 許容範囲内の数値の場合にbitrateを設定
-                    buffer = "--display-buffer=" + castBuffer;
+                    buffer = "--video-buffer=" + castBuffer;
                     errorProvider.SetError(videoBuffer, "");
                     videoBuffer.BackColor = Color.White;
                     return buffer;

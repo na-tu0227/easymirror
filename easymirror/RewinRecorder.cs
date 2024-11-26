@@ -73,7 +73,7 @@ namespace easymirror
         private void CaptureScrcpyStream(CancellationToken token)
         {
             CommandList commandList = new CommandList();
-            string command = commandList.BuildCommand(commandDict, "start", "aac", "record", "rec.mp4");
+            string command = commandList.BuildCommand(commandDict, "start", "aac","h264", "record", "rec.mp4");
 
             var processStartInfo = new ProcessStartInfo
             {
