@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\2209009\\Desktop\\easymirror\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|c:\\users\\2209009\\desktop\\easymirror\\easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\rewinrecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|c:\\users\\2209009\\desktop\\easymirror\\easymirror\\rewinrecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\rewinrecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -85,7 +85,7 @@
               "RelativeDocumentMoniker": "easymirror\\CustomSettingWindow.cs",
               "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\CustomSettingWindow.cs",
               "RelativeToolTip": "easymirror\\CustomSettingWindow.cs",
-              "ViewState": "AgIAAOYAAAAAAAAAAAAAAPkAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAP0BAAAAAAAAAAAqwPkAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-20T02:38:43.837Z",
               "EditorCaption": ""
@@ -100,7 +100,8 @@
               "RelativeToolTip": "easymirror\\RewinRecorder.cs",
               "ViewState": "AgIAAFsAAAAAAAAAAAAowFcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T00:23:37.54Z"
+              "WhenOpened": "2024-11-20T00:23:37.54Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -134,7 +135,8 @@
               "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\CustomSettingWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
               "RelativeToolTip": "easymirror\\CustomSettingWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T11:23:15.755Z"
+              "WhenOpened": "2024-11-19T11:23:15.755Z",
+              "EditorCaption": " [\u30C7\u30B6\u30A4\u30F3]"
             },
             {
               "$type": "Document",
