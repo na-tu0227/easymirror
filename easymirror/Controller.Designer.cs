@@ -128,7 +128,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(262, 554);
+            this.ClientSize = new System.Drawing.Size(262, 553);
             this.Controls.Add(this.recPicture);
             this.Controls.Add(this.CustomSettingButton);
             this.Controls.Add(this.SaveRewindRecording);
@@ -136,7 +136,11 @@
             this.Controls.Add(this.ScreenshotButton);
             this.Controls.Add(this.RecordButton);
             this.Controls.Add(this.FullscreenButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(280, 600);
+            this.MinimumSize = new System.Drawing.Size(280, 600);
             this.Name = "Controller";
             this.Text = "Controller";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ControllerFormClosing);

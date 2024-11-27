@@ -441,10 +441,9 @@
             // 
             // CustomSettingWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(691, 426);
+            this.ClientSize = new System.Drawing.Size(692, 423);
             this.Controls.Add(this.WirelessKillButton);
             this.Controls.Add(this.sizeGroup);
             this.Controls.Add(this.backButton);
@@ -453,7 +452,10 @@
             this.Controls.Add(this.CustomRecordButton);
             this.Controls.Add(this.RecordGroup);
             this.Controls.Add(this.label8);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(710, 470);
+            this.MinimumSize = new System.Drawing.Size(710, 470);
             this.Name = "CustomSettingWindow";
             this.Text = "CustomSetting";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomSettingWindow_FormClosing);

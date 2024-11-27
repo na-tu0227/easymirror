@@ -3,35 +3,42 @@
   "WorkspaceRootPath": "C:\\Users\\2209009\\Desktop\\easymirror\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|easymirror||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|c:\\users\\2209009\\desktop\\easymirror\\easymirror\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\mainproc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\mainproc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\processmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\processmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\mainwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2209009\\AppData\\Local\\Temp\\.vsdbgsrc\\788d967810bd64d6b4d239d2afda247156999def8f4b0d1ea50348808f03b37d\\DeviceManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\wirelessmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\wirelessmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\processmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\processmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|easymirror||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\mainproc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\mainproc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -40,10 +47,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\devicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|solutionrelative:easymirror\\customsettingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{66B21B87-E9F3-4798-A110-FEC39989CDDC}|easymirror\\easymirror.csproj|C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\rewinrecorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -64,11 +67,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "Mainproc.cs",
               "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\Mainproc.cs",
               "RelativeDocumentMoniker": "easymirror\\Mainproc.cs",
@@ -82,6 +85,106 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Controller.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\Controller.cs",
+              "RelativeDocumentMoniker": "easymirror\\Controller.cs",
+              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\Controller.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "RelativeToolTip": "easymirror\\Controller.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T11:23:15.9Z",
+              "EditorCaption": " [\u30C7\u30B6\u30A4\u30F3]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\MainWindow.cs",
+              "RelativeDocumentMoniker": "easymirror\\MainWindow.cs",
+              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\MainWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "RelativeToolTip": "easymirror\\MainWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T11:23:15.633Z",
+              "EditorCaption": " [\u30C7\u30B6\u30A4\u30F3]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DeviceManager.cs",
+              "DocumentMoniker": "C:\\Users\\2209009\\AppData\\Local\\Temp\\.vsdbgsrc\\788d967810bd64d6b4d239d2afda247156999def8f4b0d1ea50348808f03b37d\\DeviceManager.cs",
+              "RelativeDocumentMoniker": "..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\788d967810bd64d6b4d239d2afda247156999def8f4b0d1ea50348808f03b37d\\DeviceManager.cs",
+              "ToolTip": "C:\\Users\\2209009\\AppData\\Local\\Temp\\.vsdbgsrc\\788d967810bd64d6b4d239d2afda247156999def8f4b0d1ea50348808f03b37d\\DeviceManager.cs [\u8AAD\u307F\u53D6\u308A\u5C02\u7528]",
+              "RelativeToolTip": "..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\788d967810bd64d6b4d239d2afda247156999def8f4b0d1ea50348808f03b37d\\DeviceManager.cs [\u8AAD\u307F\u53D6\u308A\u5C02\u7528]",
+              "ViewState": "AgIAABoAAAAAAAAAAAAmwCkAAAADAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T05:25:42.01Z",
+              "EditorCaption": " [\u8AAD\u307F\u53D6\u308A\u5C02\u7528]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.cs",
+              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\MainWindow.cs",
+              "RelativeDocumentMoniker": "easymirror\\MainWindow.cs",
+              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\MainWindow.cs",
+              "RelativeToolTip": "easymirror\\MainWindow.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAwBYAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T00:45:46.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomSettingWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\CustomSettingWindow.cs",
+              "RelativeDocumentMoniker": "easymirror\\CustomSettingWindow.cs",
+              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\CustomSettingWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "RelativeToolTip": "easymirror\\CustomSettingWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-19T11:23:15.755Z",
+              "EditorCaption": " [\u30C7\u30B6\u30A4\u30F3]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WirelessManager.cs",
+              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\WirelessManager.cs",
+              "RelativeDocumentMoniker": "easymirror\\WirelessManager.cs",
+              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\WirelessManager.cs",
+              "RelativeToolTip": "easymirror\\WirelessManager.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAiwCoAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T02:45:18.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProcessManager.cs",
+              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\ProcessManager.cs",
+              "RelativeDocumentMoniker": "easymirror\\ProcessManager.cs",
+              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\ProcessManager.cs",
+              "RelativeToolTip": "easymirror\\ProcessManager.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAFgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-21T01:37:51.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "easymirror",
+              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\easymirror.csproj",
+              "RelativeDocumentMoniker": "easymirror\\easymirror.csproj",
+              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\easymirror.csproj",
+              "RelativeToolTip": "easymirror\\easymirror.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-11-27T02:59:46.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Controller.cs",
               "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\Controller.cs",
               "RelativeDocumentMoniker": "easymirror\\Controller.cs",
@@ -94,66 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "easymirror",
-              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\easymirror.csproj",
-              "RelativeDocumentMoniker": "easymirror\\easymirror.csproj",
-              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\easymirror.csproj",
-              "RelativeToolTip": "easymirror\\easymirror.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-27T02:59:46.529Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProcessManager.cs",
-              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\ProcessManager.cs",
-              "RelativeDocumentMoniker": "easymirror\\ProcessManager.cs",
-              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\ProcessManager.cs",
-              "RelativeToolTip": "easymirror\\ProcessManager.cs",
-              "ViewState": "AgIAAFcAAAAAAAAAAAAAAFgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T01:37:51.646Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "WirelessManager.cs",
-              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\WirelessManager.cs",
-              "RelativeDocumentMoniker": "easymirror\\WirelessManager.cs",
-              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\WirelessManager.cs",
-              "RelativeToolTip": "easymirror\\WirelessManager.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAiwCoAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T02:45:18.926Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
-              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\MainWindow.cs",
-              "RelativeDocumentMoniker": "easymirror\\MainWindow.cs",
-              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\MainWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
-              "RelativeToolTip": "easymirror\\MainWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T11:23:15.633Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.cs",
-              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\MainWindow.cs",
-              "RelativeDocumentMoniker": "easymirror\\MainWindow.cs",
-              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\MainWindow.cs",
-              "RelativeToolTip": "easymirror\\MainWindow.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAAwBYAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T00:45:46.938Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "DeviceManager.cs",
               "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\DeviceManager.cs",
               "RelativeDocumentMoniker": "easymirror\\DeviceManager.cs",
@@ -161,11 +205,12 @@
               "RelativeToolTip": "easymirror\\DeviceManager.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAAADcAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T00:15:27.131Z"
+              "WhenOpened": "2024-11-20T00:15:27.131Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "CustomSettingWindow.cs",
               "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\CustomSettingWindow.cs",
               "RelativeDocumentMoniker": "easymirror\\CustomSettingWindow.cs",
@@ -173,33 +218,12 @@
               "RelativeToolTip": "easymirror\\CustomSettingWindow.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACACAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T02:38:43.837Z"
+              "WhenOpened": "2024-11-20T02:38:43.837Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Controller.cs [\u30C7\u30B6\u30A4\u30F3]",
-              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\Controller.cs",
-              "RelativeDocumentMoniker": "easymirror\\Controller.cs",
-              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\Controller.cs [\u30C7\u30B6\u30A4\u30F3]",
-              "RelativeToolTip": "easymirror\\Controller.cs [\u30C7\u30B6\u30A4\u30F3]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T11:23:15.9Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CustomSettingWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
-              "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\CustomSettingWindow.cs",
-              "RelativeDocumentMoniker": "easymirror\\CustomSettingWindow.cs",
-              "ToolTip": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\CustomSettingWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
-              "RelativeToolTip": "easymirror\\CustomSettingWindow.cs [\u30C7\u30B6\u30A4\u30F3]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T11:23:15.755Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "RewinRecorder.cs",
               "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\RewinRecorder.cs",
               "RelativeDocumentMoniker": "easymirror\\RewinRecorder.cs",
@@ -211,7 +235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "CustomMessageBox.Designer.cs",
               "DocumentMoniker": "C:\\Users\\2209009\\Desktop\\easymirror\\easymirror\\CustomMessageBox.Designer.cs",
               "RelativeDocumentMoniker": "easymirror\\CustomMessageBox.Designer.cs",
