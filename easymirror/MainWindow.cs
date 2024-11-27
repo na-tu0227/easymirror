@@ -20,7 +20,7 @@ namespace easymirror
             InitializeComponent();
             mainProc = new MainProc();
             controller = new Controller();
-            deviceManager = new DeviceManager(".\\scrcpy\\adb.exe");  // adbパスを適宜指定
+            deviceManager = new DeviceManager();  // adbパスを適宜指定
         }
 
 

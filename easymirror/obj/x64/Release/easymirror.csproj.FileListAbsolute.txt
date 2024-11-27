@@ -22,3 +22,5 @@ C:\Users\tosho\OneDrive\デスクトップ\easymirrorBuild\Relese\easymirror.exe
 C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Release\easymirror.CustomMessageBox.resources
 C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Release\easymirror.Properties.Resources.resources
 C:\Users\tosho\OneDrive\デスクトップ\easymirror\easymirror\obj\x64\Release\easymirror.exe
+C:\Users\2209009\Desktop\easymirrorBuild\aa\Relese\easymirror.exe.config
+C:\Users\2209009\Desktop\easymirrorBuild\aa\Relese\easymirror.exe

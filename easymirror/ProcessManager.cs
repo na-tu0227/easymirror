@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 
 namespace easymirror
 {
     public class ProcessManager
     {
+        private readonly string logFilePath = ".\\log.txt";
+
         public Process StartProcess(string filePath, string arguments = "", bool redirectOutput = false, bool createNoWindow = true)
         {
             Process process = new Process
@@ -27,7 +30,9 @@ namespace easymirror
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"プロセスの起動に失敗しました: {ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string errorMessage = $"error: {ex.Message}";
+                LogError(errorMessage);
+                MessageBox.Show(errorMessage, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 process.Dispose();
                 return null;
             }
@@ -49,7 +54,9 @@ namespace easymirror
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"無線接続の実行に失敗しました: {ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string errorMessage = $"errorwireless: {ex.Message}";
+                    LogError(errorMessage);
+                    MessageBox.Show(errorMessage, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
                 finally
@@ -73,7 +80,9 @@ namespace easymirror
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"プロセスの停止に失敗しました: {ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string errorMessage = $"error: {ex.Message}";
+                LogError(errorMessage);
+                MessageBox.Show(errorMessage, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -81,6 +90,20 @@ namespace easymirror
             }
         }
 
-        
+        public void LogMessage(string message)
+        {
+            using (StreamWriter writer = new StreamWriter(logFilePath, true))
+            {
+                writer.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] [INFO] {message}");
+            }
+        }
+
+        public void LogError(string message)
+        {
+            using (StreamWriter writer = new StreamWriter(logFilePath, true))
+            {
+                writer.WriteLine($"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] [ERROR] {message}");
+            }
+        }
     }
 }

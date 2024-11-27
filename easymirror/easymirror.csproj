@@ -44,7 +44,7 @@
     <WarningLevel>5</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>..\..\easymirrorBuild\Relese\</OutputPath>
+    <OutputPath>..\..\easymirrorBuild\aa\Relese\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>none</DebugType>
@@ -54,6 +54,9 @@
     <Prefer32Bit>true</Prefer32Bit>
     <DocumentationFile>
     </DocumentationFile>
+    <AllowedReferenceRelatedFileExtensions>
+     *.xml
+   </AllowedReferenceRelatedFileExtensions>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -118,9 +121,7 @@
     <Compile Include="ProcessManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecordManagerコメントアウト.cs" />
     <Compile Include="RewinRecorder.cs" />
-    <Compile Include="Screenshot.cs" />
     <Compile Include="WirelessManager.cs" />
     <EmbeddedResource Include="Controller.resx">
       <DependentUpon>Controller.cs</DependentUpon>

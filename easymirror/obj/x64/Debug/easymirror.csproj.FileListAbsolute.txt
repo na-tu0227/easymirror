@@ -29,3 +29,6 @@ C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Debug\easymirror.csproj.C
 C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Debug\easymirror.csproj.Up2Date
 C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Debug\easymirror.exe
 C:\Users\2209009\Desktop\easymirror\easymirror\obj\x64\Debug\easymirror.pdb
+C:\Users\2209009\Desktop\easymirrorBuild\easymirror\Debug\easymirror.exe.config
+C:\Users\2209009\Desktop\easymirrorBuild\easymirror\Debug\easymirror.exe
+C:\Users\2209009\Desktop\easymirrorBuild\easymirror\Debug\easymirror.pdb

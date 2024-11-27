@@ -15,7 +15,6 @@ namespace easymirror
     {
 
         private readonly ProcessManager processManager;
-        private readonly DeviceManager deviceManager;
         private readonly WirelessManager wirelessManager;
         private Dictionary<string, string> commandDict;
         private RewindRecorder rewindRecorder;
@@ -31,7 +30,6 @@ namespace easymirror
         public MainProc()
         {
             processManager = new ProcessManager();
-            deviceManager = new DeviceManager(adbPath);
             wirelessManager = new WirelessManager();
             commandList = new CommandList();
             commandDict = commandList.Commandget(jsonPath);
@@ -79,6 +77,7 @@ namespace easymirror
             {
                 string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", display, "max-fps", fps, "bitrate", bitrate, buffer, movie, audio);
                 process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+                
 
             }
 
@@ -117,6 +116,7 @@ namespace easymirror
         {
             string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", "fullscreen");
             process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+            processManager.LogMessage("start:fullscreen");
         }
 
         // 録画を開始
@@ -125,6 +125,7 @@ namespace easymirror
             string recPath = CreateRecPath();
             string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", "aac", "record", recPath);
             process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+            processManager.LogMessage("start:Recording");
         }
 
         //巻き戻し録画
@@ -144,9 +145,11 @@ namespace easymirror
         }
 
 
-        public async Task ScreenshotAsync()
+        public void Screenshot()
         {
+            
             Process ssProcess = null;
+            processManager.LogMessage("screenshotwait...");
             try
             {
                 // ADBコマンドを実行してスクリーンショットを取得
@@ -175,6 +178,7 @@ namespace easymirror
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1
                 );
+                processManager.LogMessage("success:screenshot");
             }
             catch (Exception ex)
             {
@@ -183,7 +187,9 @@ namespace easymirror
                     "エラー",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
+                    
                 );
+                processManager.LogError("error:screenshot");
             }
             finally
             {
@@ -203,6 +209,7 @@ namespace easymirror
         {
             string command = commandList.BuildCommand(commandDict, "adbstop");
             processManager.StartProcess(adbPath, command, redirectOutput: true);
+            processManager.LogMessage("restart:adb");
         }
 
 
@@ -212,6 +219,7 @@ namespace easymirror
         {
             string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", display, "max-fps", fps, "bitrate", bitrate, buffer, movie, audio);
             process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+            processManager.LogMessage("start:custom");
 
         }
 
@@ -220,6 +228,7 @@ namespace easymirror
             String recPath = CreateRecPath();
             string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", display, "max-fps", fps, "bitrate", bitrate, buffer, movie, audio, "record", recPath);
             process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+            processManager.LogMessage("start:customrecord");
         }
 
         

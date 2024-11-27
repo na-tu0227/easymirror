@@ -9,11 +9,10 @@ namespace easymirror
     public class DeviceManager
     {
         private readonly ProcessManager processManager;
-        private readonly string adbPath;
+        private  string adbPath = ".\\scrcpy\\adb.exe";
 
-        public DeviceManager(string adbPath)
+        public DeviceManager()
         {
-            this.adbPath = adbPath;
             processManager = new ProcessManager();
         }
 

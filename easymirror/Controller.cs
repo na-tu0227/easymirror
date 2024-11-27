@@ -117,10 +117,10 @@ namespace easymirror
 
 
         //スクリーンショット撮影
-        private async void  ScreenshotButtonClick(object sender, EventArgs e)
+        private  void  ScreenshotButtonClick(object sender, EventArgs e)
         {
 
-           await mainProc.ScreenshotAsync();
+            mainProc.Screenshot();
         }
 
 

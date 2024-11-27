@@ -28,7 +28,7 @@ namespace easymirror
 
             controller = new Controller();
             mainProc = new MainProc();
-            deviceManager = new DeviceManager(".\\scrcpy\\adb.exe");  // adbパスを適宜指定
+            deviceManager = new DeviceManager();  
             errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             InitializeComponent();
         }
@@ -547,6 +547,7 @@ namespace easymirror
 
                     mainProc.CustomRecordStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
                     controller.StartRec(deviceId);
+                    
 
 
                 }
