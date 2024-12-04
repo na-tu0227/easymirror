@@ -10,6 +10,7 @@ namespace easymirror
     public partial class Controller : Form
     {
         private MainProc mainProc;
+        private CustomDTO customDTO;
         private bool isWirelessInitialized = false;
         private string deviceId;
         private bool fullscreenFlag = false;
@@ -26,20 +27,21 @@ namespace easymirror
         }
 
 
-        public void GetMainProc(MainProc mainProc, string deviceId, bool isWirelessInitialized)
+        public void GetEasyStart(MainProc mainProc, string deviceId)
         {
             this.mainProc = mainProc;
             this.deviceId = deviceId;
-            this.isWirelessInitialized = isWirelessInitialized;
 
         }
-        public void GetWirelessProc(WirelessManager wirelessProc, string ipAddress, bool isWirelessInitialized)
+        public void GetCustomStart(MainProc mainProc,string deviceId,CustomDTO customDTO)
         {
-
-            this.isWirelessInitialized = isWirelessInitialized;
-            this.deviceId = ipAddress;
+            this.mainProc = mainProc;
+            this.deviceId = deviceId;
+            this.customDTO = customDTO;
 
         }
+
+        
 
         public void StartFull(string deviceId)
         {
@@ -47,6 +49,7 @@ namespace easymirror
             FullscreenButton.BackgroundImage = Properties.Resources.縮小アイコン;
             ToolTip.SetToolTip(FullscreenButton, "縮小する");
             RecordButton.Enabled = false;
+            avMuteButton.Enabled = false;
             this.TopMost = true;
             this.deviceId = deviceId;
         }
@@ -60,8 +63,32 @@ namespace easymirror
             RecordButton.Text = "録画停止";
             recPicture.Visible = true;
             FullscreenButton.Enabled = false;
+            avMuteButton.Enabled = false;
             this.deviceId = deviceId;
 
+
+        }
+
+        public void NoMirror()
+        {
+            
+            var dialogResult = MessageBox.Show("現在画面を隠して起動しています。解除する場合はOKを押してください。",
+                                               "確認",
+                                               MessageBoxButtons.OK,
+                                               MessageBoxIcon.Information,
+                                               MessageBoxDefaultButton.Button1,
+                                               MessageBoxOptions.DefaultDesktopOnly);
+            if (dialogResult == DialogResult.OK)
+            { 
+                if(recordFlag == true)
+                {
+                   ToggleRecordMode();
+                }
+                
+                mainProc.StartScrcpy(deviceId);
+                
+                this.Show();
+            }
 
         }
 
@@ -86,10 +113,16 @@ namespace easymirror
             main.Show();
 
             mainProc.StopScrcpy();
+            if(recordFlag == true)
+            {
+                MessageBox.Show("録画が終了しました。",
+                                                "録画",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Information,
+                                                MessageBoxDefaultButton.Button1,
+                                                MessageBoxOptions.DefaultDesktopOnly);
 
-
-
-
+            }
 
         }
 
@@ -141,15 +174,12 @@ namespace easymirror
 
             mainProc.StopScrcpy();
 
-
-
-
-
             if (recordFlag)
             {
                 mainProc.StartScrcpy(deviceId); // 通常モードで再起動
                 FullscreenButton.Enabled = true;
                 CustomSettingButton.Enabled = true;
+                avMuteButton.Enabled = true;
                 recPicture.Visible = false;
                 RecordButton.Text = "録画開始";
                 MessageBox.Show("録画が停止されました", "録画停止", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
@@ -163,6 +193,7 @@ namespace easymirror
                 mainProc.Recording(deviceId);
                 FullscreenButton.Enabled = false;
                 CustomSettingButton.Enabled = false;
+                avMuteButton.Enabled = false;
                 recPicture.Visible = true;
                 RecordButton.Text = "録画停止";
                 MessageBox.Show("録画が開始されました ", "録画開始", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
@@ -190,8 +221,17 @@ namespace easymirror
 
             if (fullscreenFlag)
             {
-                mainProc.StartScrcpy(deviceId); // 通常モードで再起動
+                if(customDTO != null)
+                {
+                    mainProc.CustomStart(deviceId,customDTO);
+                }
+                else
+                {
+                    mainProc.StartScrcpy(deviceId); // 通常モードで再起動
+
+                }
                 RecordButton.Enabled = true;
+                avMuteButton.Enabled = true;
                 FullscreenButton.BackgroundImage = Properties.Resources.全画面アイコン;
                 ToolTip.SetToolTip(FullscreenButton, "全画面表示");
                 this.TopMost = false;
@@ -202,6 +242,7 @@ namespace easymirror
             {
                 mainProc.FullScreen(deviceId);
                 RecordButton.Enabled = false;
+                avMuteButton.Enabled = false;
                 FullscreenButton.BackgroundImage = Properties.Resources.縮小アイコン;
                 ToolTip.SetToolTip(FullscreenButton, "縮小する");
                 this.TopMost = true;
@@ -214,12 +255,7 @@ namespace easymirror
             this.Show();
         }
 
-        private void SaveRewindRecording_Click(object sender, EventArgs e)
-        {
-
-
-            mainProc.SaveRewindRecorder();
-        }
+       
 
         private void CustomSetting_Click(object sender, EventArgs e)
         {
@@ -232,6 +268,30 @@ namespace easymirror
             customSettingWindow.ShowDialog();
 
 
+        }
+
+        private void av_muteButton_Click(object sender, EventArgs e)
+        {
+            mainProc.StopScrcpy();
+            this.Hide();
+
+            var dialogResult = MessageBox.Show("現在ミュート中です解除する場合はOKを押してください。",
+                                                "ミュート",
+                                                MessageBoxButtons.OK,
+                                                MessageBoxIcon.Information,
+                                                MessageBoxDefaultButton.Button1,
+                                                MessageBoxOptions.DefaultDesktopOnly);
+            if (dialogResult == DialogResult.OK) {
+                if (customDTO != null)
+                {
+                    mainProc.CustomStart(deviceId,customDTO);
+                }
+                else
+                {
+                    mainProc.StartScrcpy(deviceId);
+                }
+                this.Show();
+            }
         }
     }
 }

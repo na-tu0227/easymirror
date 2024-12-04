@@ -9,10 +9,11 @@ namespace easymirror
     public class DeviceManager
     {
         private readonly ProcessManager processManager;
-        private  string adbPath = ".\\scrcpy\\adb.exe";
+        private MainDTO mainDTO;
 
         public DeviceManager()
         {
+            mainDTO = new MainDTO();
             processManager = new ProcessManager();
         }
 
@@ -23,7 +24,7 @@ namespace easymirror
             try
             {
                 // adbプロセスを生成
-                adbProcess = processManager.StartProcess(adbPath, "devices", redirectOutput: true);
+                adbProcess = processManager.StartProcess(mainDTO.adbPath, "devices", redirectOutput: true);
 
                 // 結果を取得
                 string output = adbProcess.StandardOutput.ReadToEnd();
@@ -37,7 +38,7 @@ namespace easymirror
                 //失敗したらfalseを返す
                 MessageBox.Show($"ADBコマンドの実行に失敗しました: {ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //adbの停止
-                processManager.StartProcess(adbPath, "kill-server");
+                processManager.StartProcess(mainDTO.adbPath, "kill-server");
                 return false;
             }
         }
@@ -51,7 +52,7 @@ namespace easymirror
             try
             {
                 //adbプロセスの生成
-                adbProcess = processManager.StartProcess(adbPath, "devices", redirectOutput: true);
+                adbProcess = processManager.StartProcess(mainDTO.adbPath, "devices", redirectOutput: true);
                 //adbの実行結果を変数に格納
                 string output = adbProcess.StandardOutput.ReadToEnd();
                 adbProcess.WaitForExit();
@@ -74,7 +75,7 @@ namespace easymirror
             {
                 MessageBox.Show($"デバイス情報の取得に失敗しました: {ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //adbの停止
-                processManager.StartProcess(adbPath, "kill-server");
+                processManager.StartProcess(mainDTO.adbPath, "kill-server");
             }
             return deviceDetails;
         }
@@ -85,7 +86,7 @@ namespace easymirror
             Process adbProcess = null;
             try
             {
-                adbProcess = processManager.StartProcess(adbPath, $"-s {deviceId} shell getprop ro.product.model", redirectOutput: true);
+                adbProcess = processManager.StartProcess(mainDTO.adbPath, $"-s {deviceId} shell getprop ro.product.model", redirectOutput: true);
                 string output = adbProcess.StandardOutput.ReadToEnd().Trim();
                 adbProcess.WaitForExit();
                 return output;
@@ -94,7 +95,7 @@ namespace easymirror
             {
                 MessageBox.Show($"デバイス名の取得に失敗しました: {ex.Message}", "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //adbの停止
-                processManager.StartProcess(adbPath, "kill-server");
+                processManager.StartProcess(mainDTO.adbPath, "kill-server");
                 return "Unknown Device";
             }
         }
@@ -155,7 +156,7 @@ namespace easymirror
             {
                 var device = devices[0];
                 getId = device.id;
-                return device.id;
+                return getId;
             }
             //端末が無いとき
             else

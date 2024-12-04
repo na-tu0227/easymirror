@@ -99,6 +99,7 @@
     <Compile Include="Controller.Designer.cs">
       <DependentUpon>Controller.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomDTO.cs" />
     <Compile Include="CustomMessageBox.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -111,6 +112,7 @@
       <DependentUpon>CustomSettingWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="DeviceManager.cs" />
+    <Compile Include="MainDTO.cs" />
     <Compile Include="Mainproc.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>

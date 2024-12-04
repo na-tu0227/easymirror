@@ -9,7 +9,6 @@ namespace easymirror
     public partial class MainWindow : Form
     {
         private MainProc mainProc;
-        private bool isWirelessInitialized = false;
         private Controller controller;
         private DeviceManager deviceManager;
 
@@ -27,7 +26,7 @@ namespace easymirror
         //Mainwindowが終了したらアプリ全体を落とす
         private void MainWindowFormClosing(object sender, FormClosingEventArgs e)
         {
-            mainProc.AdbRestart();
+            mainProc.AdbStop();
             Environment.Exit(0);
         }
 
@@ -45,21 +44,13 @@ namespace easymirror
 
        
 
-            if (deviceManager.DeviceConnected() && !string.IsNullOrEmpty(deviceId) && RewindRecording.Checked)
-            {
-                MessageBox.Show("巻き戻し録画を開始します。","開始",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                mainProc.RewindRecorder();
-                controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);  // MainProcとデバイスIdをControllerに渡す
-                controller.Show();
-            }
-
             //有線接続
-            else if (deviceManager.DeviceConnected() && !string.IsNullOrEmpty(deviceId))
+            if (deviceManager.DeviceConnected() && !string.IsNullOrEmpty(deviceId))
             {
                 //deviceManagerでデバイスIdを取得し実行。
                 //Scrcpyとリモコンが表示される
                  mainProc.StartScrcpy(deviceId);
-                controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);  // MainProcとデバイスIdをControllerに渡す
+                controller.GetEasyStart(mainProc, deviceId);  // MainProcとデバイスIdをControllerに渡す
           
                 controller.Show();
             }
@@ -98,5 +89,7 @@ namespace easymirror
             customSettingWindow.Show();
 
         }
+
+        
     }
 }

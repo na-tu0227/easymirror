@@ -35,9 +35,9 @@
             this.RecordButton = new System.Windows.Forms.Button();
             this.ScreenshotButton = new System.Windows.Forms.Button();
             this.FolderButton = new System.Windows.Forms.Button();
-            this.SaveRewindRecording = new System.Windows.Forms.Button();
             this.CustomSettingButton = new System.Windows.Forms.Button();
             this.recPicture = new System.Windows.Forms.PictureBox();
+            this.avMuteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,9 +51,9 @@
             this.FullscreenButton.BackgroundImage = global::easymirror.Properties.Resources.全画面アイコン;
             this.FullscreenButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.FullscreenButton.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.FullscreenButton.Location = new System.Drawing.Point(215, 44);
+            this.FullscreenButton.Location = new System.Drawing.Point(185, 35);
             this.FullscreenButton.Name = "FullscreenButton";
-            this.FullscreenButton.Size = new System.Drawing.Size(35, 35);
+            this.FullscreenButton.Size = new System.Drawing.Size(54, 53);
             this.FullscreenButton.TabIndex = 0;
             this.ToolTip.SetToolTip(this.FullscreenButton, "全画面表示");
             this.FullscreenButton.UseVisualStyleBackColor = false;
@@ -62,9 +62,10 @@
             // 
             // RecordButton
             // 
-            this.RecordButton.Location = new System.Drawing.Point(136, 94);
+            this.RecordButton.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.RecordButton.Location = new System.Drawing.Point(19, 126);
             this.RecordButton.Name = "RecordButton";
-            this.RecordButton.Size = new System.Drawing.Size(114, 43);
+            this.RecordButton.Size = new System.Drawing.Size(220, 50);
             this.RecordButton.TabIndex = 1;
             this.RecordButton.Text = "録画開始";
             this.RecordButton.UseVisualStyleBackColor = true;
@@ -72,10 +73,10 @@
             // 
             // ScreenshotButton
             // 
-            this.ScreenshotButton.Font = new System.Drawing.Font("MS UI Gothic", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.ScreenshotButton.Location = new System.Drawing.Point(136, 157);
+            this.ScreenshotButton.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.ScreenshotButton.Location = new System.Drawing.Point(19, 204);
             this.ScreenshotButton.Name = "ScreenshotButton";
-            this.ScreenshotButton.Size = new System.Drawing.Size(114, 40);
+            this.ScreenshotButton.Size = new System.Drawing.Size(220, 50);
             this.ScreenshotButton.TabIndex = 2;
             this.ScreenshotButton.Text = "スクリーンショット";
             this.ScreenshotButton.UseVisualStyleBackColor = true;
@@ -83,29 +84,21 @@
             // 
             // FolderButton
             // 
-            this.FolderButton.Location = new System.Drawing.Point(136, 230);
+            this.FolderButton.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.FolderButton.Location = new System.Drawing.Point(19, 430);
             this.FolderButton.Name = "FolderButton";
-            this.FolderButton.Size = new System.Drawing.Size(114, 40);
+            this.FolderButton.Size = new System.Drawing.Size(220, 50);
             this.FolderButton.TabIndex = 3;
             this.FolderButton.Text = "フォルダー";
             this.FolderButton.UseVisualStyleBackColor = true;
             this.FolderButton.Click += new System.EventHandler(this.FolderButtonClick);
             // 
-            // SaveRewindRecording
-            // 
-            this.SaveRewindRecording.Location = new System.Drawing.Point(136, 301);
-            this.SaveRewindRecording.Name = "SaveRewindRecording";
-            this.SaveRewindRecording.Size = new System.Drawing.Size(118, 38);
-            this.SaveRewindRecording.TabIndex = 4;
-            this.SaveRewindRecording.Text = "巻き戻し録画";
-            this.SaveRewindRecording.UseVisualStyleBackColor = true;
-            this.SaveRewindRecording.Click += new System.EventHandler(this.SaveRewindRecording_Click);
-            // 
             // CustomSettingButton
             // 
-            this.CustomSettingButton.Location = new System.Drawing.Point(136, 372);
+            this.CustomSettingButton.Font = new System.Drawing.Font("MS UI Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CustomSettingButton.Location = new System.Drawing.Point(19, 355);
             this.CustomSettingButton.Name = "CustomSettingButton";
-            this.CustomSettingButton.Size = new System.Drawing.Size(118, 38);
+            this.CustomSettingButton.Size = new System.Drawing.Size(220, 50);
             this.CustomSettingButton.TabIndex = 5;
             this.CustomSettingButton.Text = "カスタマイズ";
             this.CustomSettingButton.UseVisualStyleBackColor = true;
@@ -123,15 +116,26 @@
             this.recPicture.TabStop = false;
             this.recPicture.Visible = false;
             // 
+            // avMuteButton
+            // 
+            this.avMuteButton.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.avMuteButton.Location = new System.Drawing.Point(19, 280);
+            this.avMuteButton.Name = "avMuteButton";
+            this.avMuteButton.Size = new System.Drawing.Size(220, 50);
+            this.avMuteButton.TabIndex = 7;
+            this.avMuteButton.Text = "AVミュート";
+            this.avMuteButton.UseVisualStyleBackColor = true;
+            this.avMuteButton.Click += new System.EventHandler(this.av_muteButton_Click);
+            // 
             // Controller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(262, 553);
+            this.Controls.Add(this.avMuteButton);
             this.Controls.Add(this.recPicture);
             this.Controls.Add(this.CustomSettingButton);
-            this.Controls.Add(this.SaveRewindRecording);
             this.Controls.Add(this.FolderButton);
             this.Controls.Add(this.ScreenshotButton);
             this.Controls.Add(this.RecordButton);
@@ -156,8 +160,8 @@
         private System.Windows.Forms.Button RecordButton;
         private System.Windows.Forms.Button ScreenshotButton;
         private System.Windows.Forms.Button FolderButton;
-        private System.Windows.Forms.Button SaveRewindRecording;
         private System.Windows.Forms.Button CustomSettingButton;
         private System.Windows.Forms.PictureBox recPicture;
+        private System.Windows.Forms.Button avMuteButton;
     }
 }

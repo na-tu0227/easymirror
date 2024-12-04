@@ -13,10 +13,11 @@ namespace easymirror
     public partial class CustomSettingWindow : Form
     {
         private MainProc mainProc;
+        private string deviceId;
         private WirelessManager wirelessManager;
         private Controller controller;
         private DeviceManager deviceManager;
-        private string deviceId, fps, bitrate, buffer, size, display, movie, audio;
+        private CustomDTO customDTO;
         private bool isWirelessInitialized = false;
         private bool isMainWindowAccess;
 
@@ -28,7 +29,8 @@ namespace easymirror
 
             controller = new Controller();
             mainProc = new MainProc();
-            deviceManager = new DeviceManager();  
+            deviceManager = new DeviceManager();
+            customDTO = new CustomDTO();
             errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             InitializeComponent();
         }
@@ -53,25 +55,17 @@ namespace easymirror
 
         }
 
-        //コントローラーの情報からWirelessProcプロセスを取得
-        public void GetControllerWirelessProc(WirelessManager wirelessproc, String ipAdress, bool isWirelessInitialized, Controller controller)
-        {
-            this.controller = controller;
-            this.wirelessManager = wirelessproc;
-            deviceId = ipAdress;
-            this.isWirelessInitialized = isWirelessInitialized;
-            WirelessKillButton.Enabled = isWirelessInitialized;
-        }
+       
 
         //Windowが開いた時の処理（コンストラクターとは別）
         //初期値の格納に使用
         private void CustomSettingWindow_Load(object sender, EventArgs e)
         {
-            fps = "60";
-            bitrate = "8M";
-            size = "1024";
-            buffer = "--video-buffer=0";
-            display = "";
+           customDTO.fps = "60";
+            customDTO.bitrate = "8M";
+            customDTO.size = "1024";
+            customDTO.buffer = "--video-buffer=0";
+            customDTO.display = "";
             movieCodec.SelectedIndex = 0;
             audioCodec.SelectedIndex = 0;
 
@@ -100,7 +94,7 @@ namespace easymirror
             }
             else
             {
-                controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);
+                controller.GetCustomStart(mainProc, deviceId, customDTO);
 
 
                 controller.Show();
@@ -142,31 +136,31 @@ namespace easymirror
                 // 許容範囲外の場合エラーメッセージを表示
                 if (castFps == 0)
                 {
-                    fps = "60";
+                    customDTO.fps = "60";
                     errorProvider.SetError(maxFps, "");
                     maxFps.BackColor = Color.White;
 
-                    return fps;
+                    return customDTO.fps;
 
                 }
                 if (castFps > 120)
                 {
 
                     maxFps.Text = "0"; // デフォルトの値に戻す
-                    fps = "60";
+                    customDTO.fps = "60";
 
                     maxFps.SelectionStart = maxFps.Text.Length;
                     errorProvider.SetError(maxFps, "規定内の数値を入力してください");
                     maxFps.BackColor = Color.LightPink;
-                    return fps;
+                    return customDTO.fps;
                 }
                 else
                 {
 
-                    fps = maxFps.Text;
+                    customDTO.fps = maxFps.Text;
                     errorProvider.SetError(maxFps, "");
                     maxFps.BackColor = Color.White;
-                    return fps;
+                    return customDTO.fps;
                 }
 
             }
@@ -183,34 +177,34 @@ namespace easymirror
 
                 if (castBitrate == 0)
                 {
-                    bitrate = "8M";
+                    customDTO.bitrate = "8M";
                     errorProvider.SetError(maxBitrate, "");
                     maxBitrate.BackColor = Color.White;
 
-                    return bitrate;
+                    return customDTO.bitrate;
 
                 }
                 if (castBitrate > 40)
                 {
 
                     maxBitrate.Text = "0"; // デフォルトの値に戻す
-                    bitrate = "8M";
+                    customDTO.bitrate = "8M";
 
                     maxBitrate.SelectionStart = maxBitrate.Text.Length;
                     errorProvider.SetError(maxBitrate, "規定内の数値を入力してください");
                     maxBitrate.BackColor = Color.LightPink;
 
-                    return bitrate;
+                    return customDTO.bitrate;
 
                 }
                 else
                 {
                     // 許容範囲内の数値の場合にbitrateを設定
-                    bitrate = castBitrate + "M";
+                    customDTO.bitrate = castBitrate + "M";
                     errorProvider.SetError(maxBitrate, "");
                     maxBitrate.BackColor = Color.White;
 
-                    return bitrate;
+                    return customDTO.bitrate;
                 }
             }
             return "";
@@ -226,31 +220,31 @@ namespace easymirror
 
                 if (castBuffer == 0)
                 {
-                    buffer = "--video-buffer=0";
+                    customDTO.buffer = "--video-buffer=0";
                     errorProvider.SetError(videoBuffer, "");
                     videoBuffer.BackColor = Color.White;
-                    return buffer;
+                    return customDTO.buffer;
 
                 }
                 if (castBuffer > 10000)
                 {
 
                     videoBuffer.Text = "0"; // デフォルトの値に戻す
-                    buffer = "--video-buffer=0";
+                    customDTO.buffer = "--video-buffer=0";
 
                     videoBuffer.SelectionStart = videoBuffer.Text.Length;
                     errorProvider.SetError(videoBuffer, "規定内の数値を入力してください");
                     videoBuffer.BackColor = Color.LightPink;
-                    return buffer;
+                    return customDTO.buffer;
 
                 }
                 else
                 {
                     // 許容範囲内の数値の場合にbitrateを設定
-                    buffer = "--video-buffer=" + castBuffer;
+                    customDTO.buffer = "--video-buffer=" + castBuffer;
                     errorProvider.SetError(videoBuffer, "");
                     videoBuffer.BackColor = Color.White;
-                    return buffer;
+                    return customDTO.buffer;
                 }
 
             }
@@ -266,32 +260,32 @@ namespace easymirror
                 // 許容範囲外の場合エラーメッセージを表示
                 if (castSize == 0)
                 {
-                    size = "1024";
+                    customDTO.size = "1024";
                     errorProvider.SetError(sizeParam, "");
                     sizeParam.BackColor = Color.White;
 
-                    return size;
+                    return customDTO.size;
 
                 }
                 if (castSize > 10000)
                 {
 
                     sizeParam.Text = "0"; // デフォルトの値に戻す
-                    size = "1024";
+                    customDTO.size = "1024";
 
                     sizeParam.SelectionStart = sizeParam.Text.Length;
                     errorProvider.SetError(sizeParam, "規定内の数値を入力してください");
                     sizeParam.BackColor = Color.LightPink;
-                    return size;
+                    return customDTO.size;
 
                 }
                 else
                 {
                     // 許容範囲内の数値の場合にbitrateを設定
-                    size = sizeParam.Text;
+                    customDTO.size = sizeParam.Text;
                     errorProvider.SetError(sizeParam, "");
                     sizeParam.BackColor = Color.White;
-                    return size;
+                    return customDTO.size;
                 }
 
             }
@@ -330,10 +324,10 @@ namespace easymirror
             switch (movieCodec.SelectedIndex)
             {
                 case 0:
-                    movie = "h264";
+                    customDTO.movie = "h264";
                     break;
                 case 1:
-                    movie = "h265";
+                    customDTO.movie = "h265";
                     break;
 
 
@@ -342,14 +336,14 @@ namespace easymirror
             switch (audioCodec.SelectedIndex)
             {
                 case 0:
-                    audio = "aac";
+                    customDTO.audio = "aac";
                     break;
                 case 1:
-                    audio = "opus;";
+                    customDTO.audio = "opus;";
                     break;
 
                 case 2:
-                    audio = "noaudio";
+                    customDTO.audio = "noaudio";
                     break;
 
             }
@@ -383,22 +377,22 @@ namespace easymirror
         {
             if (defaultSizeButton.Checked)
             {
-                size = "1024";
-                return size;
+                customDTO.size = "1024";
+                return customDTO.size;
 
             }
             else if (fullScreenButton.Checked)
             {
-                display = "-f";
-                return display;
+                customDTO.display = "-f";
+                return customDTO.display;
 
             }
             else if (noMirrorButton.Checked)
             {
-                display = "-Nr";
-                return display;
+                customDTO.display = "-Nr";
+                return customDTO.display;
             }
-            return size;
+            return customDTO.size;
         }
 
 
@@ -460,7 +454,7 @@ namespace easymirror
                 if (!isWirelessInitialized)
                 {
                     mainProc?.StopScrcpy();
-                    mainProc?.AdbRestart();
+                    mainProc?.AdbStop();
                     wirelessManager = new WirelessManager();
 
                     // 初回IPアドレス取得
@@ -472,25 +466,29 @@ namespace easymirror
 
                     if (CustomRecordButton.Checked)
                     {
-                        mainProc.StartRecordWireless(deviceId, fps, bitrate, buffer, size, display, movie, audio);
+                        mainProc.StartRecordWireless(deviceId, customDTO);
                         controller.StartRec(deviceId);
 
                     }
                     else
                     {
-                        mainProc.StartWireless(deviceId, fps, bitrate, buffer, size, display, movie, audio);
+                        mainProc.StartWireless(deviceId, customDTO);
 
                     }
-                    if (display.Equals("-f") && CustomRecordButton.Checked)
+                    if (customDTO.display.Equals("-f") && CustomRecordButton.Checked)
                     {
 
                     }
-                    else if (display.Equals("-f"))
+                    else if (customDTO.display.Equals("-f"))
                     {
 
                         controller.StartFull(deviceId);
                     }
-                    controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);
+                    else if (customDTO.display.Equals("-Nr"))
+                    {
+                        controller.NoMirror();
+                    }
+                    controller.GetCustomStart(mainProc, deviceId, customDTO);
                     controller.Show();
 
                 }
@@ -505,25 +503,28 @@ namespace easymirror
                     if (CustomRecordButton.Checked)
                     {
 
-                        mainProc.CustomRecordStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
+                        mainProc.CustomRecordStart(deviceId, customDTO);
                         controller.StartRec(deviceId);
                     }
                     else
                     {
 
-                        mainProc.CustomStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
+                        mainProc.CustomStart(deviceId, customDTO);
 
                     }
-                    if (display.Equals("-f") && CustomRecordButton.Checked)
+                    if (customDTO.display.Equals("-f") && CustomRecordButton.Checked)
                     {
                       
                     }
-                    else if (display.Equals("-f")){
+                    else if (customDTO.display.Equals("-f")){
 
                         controller.StartFull(deviceId);
+                    } else if (customDTO.display.Equals("-Nr"))
+                    {
+                        controller.NoMirror();
                     }
 
-                    controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);
+                    controller.GetCustomStart(mainProc, deviceId, customDTO);
                     controller.Show();
                 }
             }
@@ -533,7 +534,7 @@ namespace easymirror
             {
 
                 mainProc?.StopScrcpy();
-                mainProc?.AdbRestart();
+                mainProc?.AdbStop();
 
 
 
@@ -545,7 +546,7 @@ namespace easymirror
                 if (CustomRecordButton.Checked)
                 {
 
-                    mainProc.CustomRecordStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
+                    mainProc.CustomRecordStart(deviceId, customDTO);
                     controller.StartRec(deviceId);
                     
 
@@ -554,15 +555,15 @@ namespace easymirror
 
                 else
                 {
-                    mainProc.CustomStart(deviceId, fps, bitrate, buffer, size, display, movie, audio);
+                    mainProc.CustomStart(deviceId, customDTO);
 
                 }
-                controller.GetMainProc(mainProc, deviceId, isWirelessInitialized);  // MainProcとデバイスIdをControllerに渡す
-                if (display.Equals("-f") && CustomRecordButton.Checked)
+                controller.GetCustomStart(mainProc, deviceId, customDTO);  // MainProcとデバイスIdをControllerに渡す
+                if (customDTO.display.Equals("-f") && CustomRecordButton.Checked)
                 {
 
                 }
-                else if (display.Equals("-f"))
+                else if (customDTO.display.Equals("-f"))
                 {
 
                     controller.StartFull(deviceId);

@@ -17,14 +17,11 @@ namespace easymirror
         private readonly ProcessManager processManager;
         private readonly WirelessManager wirelessManager;
         private Dictionary<string, string> commandDict;
-        private RewindRecorder rewindRecorder;
+        //private RewindRecorder rewindRecorder;
         private Process process;
+        private MainDTO mainDTO;
+        private CustomDTO customDTO;
         private CommandList commandList;
-
-        private String scrcpyPath = ".\\scrcpy\\scrcpy.exe";
-        private String adbPath = ".\\scrcpy\\adb.exe";
-        private String recPath = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos) + "\\easymirror";
-        private String jsonPath = ".\\CommandList.json";
 
 
         public MainProc()
@@ -32,13 +29,14 @@ namespace easymirror
             processManager = new ProcessManager();
             wirelessManager = new WirelessManager();
             commandList = new CommandList();
-            commandDict = commandList.Commandget(jsonPath);
-            rewindRecorder = new RewindRecorder(scrcpyPath, commandDict);
+            mainDTO = new MainDTO();
+            commandDict = commandList.Commandget(mainDTO.jsonPath);
+            //rewindRecorder = new RewindRecorder(scrcpyPath, commandDict);
 
             // 保存用フォルダがない場合は作成
-            if (!Directory.Exists(recPath))
+            if (!Directory.Exists(mainDTO.recPath))
             {
-                Directory.CreateDirectory(recPath);
+                Directory.CreateDirectory(mainDTO.recPath);
             }
 
         }
@@ -48,7 +46,7 @@ namespace easymirror
         {
 
             string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start");
-            process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+            process = processManager.StartProcess(mainDTO.scrcpyPath, command, redirectOutput: true);
         }
 
         // Scrcpyを停止
@@ -59,8 +57,9 @@ namespace easymirror
 
         }
 
-        public void StartWireless(string deviceId, string fps, string bitrate, string buffer, string size, string display, string movie, string audio)
+        public void StartWireless(string deviceId, CustomDTO customDTO)
         {
+            this.customDTO = customDTO;
             wirelessManager.ConnectTarget(deviceId);
 
             // USBを抜くようにユーザーに指示するメッセージボックスを表示
@@ -75,15 +74,16 @@ namespace easymirror
             //接続するプロセスを起動
             if (dialogResult == DialogResult.OK)
             {
-                string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", display, "max-fps", fps, "bitrate", bitrate, buffer, movie, audio);
-                process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+                string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", customDTO.display, "max-fps", customDTO.fps, "bitrate", customDTO.bitrate, customDTO.buffer, customDTO.movie, customDTO.audio);
+                process = processManager.StartProcess(mainDTO.scrcpyPath, command, redirectOutput: true);
                 
 
             }
 
         }
-        public void StartRecordWireless(string deviceId, string fps, string bitrate, string buffer, string size, string display, string movie, string audio)
+        public void StartRecordWireless(string deviceId, CustomDTO customDTO)
         {
+            this.customDTO = customDTO;
             wirelessManager.ConnectTarget(deviceId);
             // USBを抜くようにユーザーに指示するメッセージボックスを表示
             var dialogResult = MessageBox.Show("無線接続の準備が整いました。USBケーブルを抜いてください。",
@@ -92,8 +92,8 @@ namespace easymirror
                                                 MessageBoxIcon.Information,
                                                 MessageBoxDefaultButton.Button1,
                                                 MessageBoxOptions.DefaultDesktopOnly);
-            string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", display, "max-fps", fps, "bitrate", bitrate, buffer, movie, audio);
-            process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+            string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", customDTO.display, "max-fps", customDTO.fps, "bitrate", customDTO.bitrate, customDTO.buffer, customDTO.movie, customDTO.audio);
+            process = processManager.StartProcess(mainDTO.scrcpyPath, command, redirectOutput: true);
 
         }
 
@@ -104,7 +104,7 @@ namespace easymirror
         {
             // 現在の日時でファイル名を作成
             string fileName = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".mp4";
-            string filePath = Path.Combine(recPath, fileName);
+            string filePath = Path.Combine(mainDTO.recPath, fileName);
 
             return filePath;
         }
@@ -115,7 +115,7 @@ namespace easymirror
         public void FullScreen(string deviceId)
         {
             string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", "fullscreen");
-            process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+            process = processManager.StartProcess(mainDTO.scrcpyPath, command, redirectOutput: true);
             processManager.LogMessage("start:fullscreen");
         }
 
@@ -124,7 +124,7 @@ namespace easymirror
         {
             string recPath = CreateRecPath();
             string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", "aac", "record", recPath);
-            process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+            process = processManager.StartProcess(mainDTO.scrcpyPath, command, redirectOutput: true);
             processManager.LogMessage("start:Recording");
         }
 
@@ -132,7 +132,7 @@ namespace easymirror
         public async void RewindRecorder()
         {
 
-            await rewindRecorder.StartRecordingAsync();
+            //await rewindRecorder.StartRecordingAsync();
 
         }
 
@@ -140,8 +140,8 @@ namespace easymirror
         {
             // 現在の日時でファイル名を作成
             string fileName = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".mp4";
-            string filePath = Path.Combine(recPath, fileName);
-            await rewindRecorder.SaveBufferedRecordingAsync(filePath);
+            string filePath = Path.Combine(mainDTO.recPath, fileName);
+            //await rewindRecorder.SaveBufferedRecordingAsync(filePath);
         }
 
 
@@ -155,10 +155,10 @@ namespace easymirror
                 // ADBコマンドを実行してスクリーンショットを取得
                 string adbCommand = "exec-out screencap -p";
 
-                ssProcess = processManager.StartProcess(adbPath, adbCommand, redirectOutput: true);
+                ssProcess = processManager.StartProcess(mainDTO.adbPath, adbCommand, redirectOutput: true);
 
                 // スクリーンショットの保存フォルダーとファイルパスを設定
-                string ssFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, recPath);
+                string ssFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, mainDTO.recPath);
                 Directory.CreateDirectory(ssFolderPath);
                 string ssFileName = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".png";
                 string ssPath = Path.Combine(ssFolderPath, ssFileName);
@@ -205,29 +205,31 @@ namespace easymirror
 
 
         // ADB再起動
-        public void AdbRestart()
+        public void AdbStop()
         {
             string command = commandList.BuildCommand(commandDict, "adbstop");
-            processManager.StartProcess(adbPath, command, redirectOutput: true);
+            processManager.StartProcess(mainDTO.adbPath, command, redirectOutput: true);
             processManager.LogMessage("restart:adb");
         }
 
 
 
         //カスタマイズ設定からの起動
-        public void CustomStart(string deviceId, string fps, string bitrate, string buffer, string size, string display, string movie, string audio)
+        public void CustomStart(string deviceId, CustomDTO customDTO)
         {
-            string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", display, "max-fps", fps, "bitrate", bitrate, buffer, movie, audio);
-            process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+            this.customDTO = customDTO;
+            string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", customDTO.display, "max-fps", customDTO.fps, "bitrate", customDTO.bitrate, customDTO.buffer, customDTO.movie, customDTO.audio);
+            process = processManager.StartProcess(mainDTO.scrcpyPath, command, redirectOutput: true);
             processManager.LogMessage("start:custom");
 
         }
 
-        public void CustomRecordStart(string deviceId, string fps, string bitrate, string buffer, string size, string display, string movie, string audio)
+        public void CustomRecordStart(string deviceId, CustomDTO customDTO)
         {
+            this.customDTO = customDTO;
             String recPath = CreateRecPath();
-            string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", display, "max-fps", fps, "bitrate", bitrate, buffer, movie, audio, "record", recPath);
-            process = processManager.StartProcess(scrcpyPath, command, redirectOutput: true);
+            string command = commandList.BuildCommand(commandDict, "serial", deviceId, "start", customDTO.display, "max-fps", customDTO.fps, "bitrate", customDTO.bitrate, customDTO.buffer, customDTO.movie, customDTO.audio, "record", recPath);
+            process = processManager.StartProcess(mainDTO.scrcpyPath, command, redirectOutput: true);
             processManager.LogMessage("start:customrecord");
         }
 
@@ -239,7 +241,7 @@ namespace easymirror
         {
 
             // エクスプローラーでビデオフォルダを開く
-            Process.Start("explorer.exe", recPath);
+            Process.Start("explorer.exe", mainDTO.recPath);
         }
 
 

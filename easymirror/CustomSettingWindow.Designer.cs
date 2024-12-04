@@ -382,12 +382,12 @@
             // 
             // startButton
             // 
-            this.startButton.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.startButton.Location = new System.Drawing.Point(344, 344);
+            this.startButton.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.startButton.Location = new System.Drawing.Point(308, 344);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(172, 60);
+            this.startButton.Size = new System.Drawing.Size(208, 60);
             this.startButton.TabIndex = 26;
-            this.startButton.Text = "MirorrAppStart";
+            this.startButton.Text = "カスタマイズスタート";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
@@ -441,7 +441,8 @@
             // 
             // CustomSettingWindow
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(692, 423);
             this.Controls.Add(this.WirelessKillButton);

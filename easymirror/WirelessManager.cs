@@ -13,7 +13,6 @@ namespace easymirror
 {
     public class WirelessManager
     {
-        Process process;
         private readonly ProcessManager processManager;
         private readonly Dictionary<string, string> commandDict;
         private CommandList commandList;
@@ -21,7 +20,7 @@ namespace easymirror
 
 
         private String adbPath = ".\\scrcpy\\adb.exe";
-        private String scrcpyPath = ".\\scrcpy\\scrcpy.exe";
+        //private String scrcpyPath = ".\\scrcpy\\scrcpy.exe";
         private String jsonPath = ".\\CommandList.json";
 
 
