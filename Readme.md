@@ -1,7 +1,8 @@
-# ■easymirror使用方法（Ver0.6）
-![コメント 2024-11-21 095132](https://github.com/user-attachments/assets/89e474ae-d666-4b3a-b6c5-3864239c68cb)
+# ■easymirror使用方法（Ver0.6.1）
+![コメント 2024-12-06 123058](https://github.com/user-attachments/assets/b250c3f9-1751-4e17-b27d-9b66f0e006f1)
 
 ## ■はじめに
+
 このアプリはScrcpyをGUIで制御し、Androidスマートフォンの画面をPCに
 映すミラーリングアプリとなっています。（Scrcpyの外部ツール的な立ち位置）
 ボイスチャットなどでスマホゲームをしながら画面共有
@@ -39,7 +40,7 @@ PC
 </pre>
 
 # ■起動方法
-MirorrApp.exeを開くとスタート画面が開きます。
+easymirror.exeを開くとスタート画面が開きます。
 
 # ■機能説明
 #  MainWindow
@@ -53,9 +54,10 @@ MirorrApp.exeを開くとスタート画面が開きます。
 
     3カスタマイズ
         CustomSettingWindowに移動します。
-        MirorrAppを起動する際に詳細な設定を行うことができます。      
+        easymirrorを起動する際に詳細な設定を行うことができます。      
 # Controller
-![コメント 2024-11-21 095602](https://github.com/user-attachments/assets/22fdb0ce-06b4-4652-8617-cf81f272f8d6)
+![コメント 2024-12-06 123126](https://github.com/user-attachments/assets/510ff3fb-38de-4e3e-866a-30b8393e36bb)
+
 
     スマホ画面が表示された際にコントローラーを表示しカスタマイズを行える画面
 
@@ -67,10 +69,16 @@ MirorrApp.exeを開くとスタート画面が開きます。
     
     3スクリーンショットボタン
         画面のスクリーンショットが行える
+	
+    4 AVミュートボタン
+	一時的にミラーリング画面と音声を遮断します。
 
-    4カスタマイズ
+    5カスタマイズボタン
 	MainWindowにあるボタンと同様コントローラーから
 	CustomSettingWindowに遷移する。
+ 
+    6フォルダーボタン
+    	保存した録画やスクリーンショットを閲覧することができます。
 
     
     ※全画面ボタンと録画ボタンは既定の値を
@@ -78,12 +86,11 @@ MirorrApp.exeを開くとスタート画面が開きます。
 
 
 # CustomSettingWindow
-![コメント 2024-11-21 095615](https://github.com/user-attachments/assets/96691bf7-dd30-4971-b4eb-aa07440dc252)
+![コメント 2024-12-06 124657](https://github.com/user-attachments/assets/794ea885-68fd-4d14-85b9-d05874608f24)
 
-
-    MirorrAppを起動する際に詳細な設定を行うことが
+    easymirrorを起動する際に詳細な設定を行うことが
     できます。
-    各種設定を行ってから「MirorrAppStart」を押すと
+    各種設定を行ってから「カスタマイズスタート」を押すと
     設定が反映されスマホ画面が表示されます。
 
     1無線起動
@@ -138,18 +145,25 @@ Copyright (C) 2024 na_tu0227
 
 ## ■更新状況
 <pre>
+ver.0.6.1
+・[docs]Readme更新
+・[feat]画面デザイン一部変更。ボタンの拡大とテキスト変更。
+・[fix]カスタマイズ機能で設定した数値を引き継いだままコントローラーで全画面表示や録画ができるように修正。
+・[refactor]ファイルパスとカスタマイズ機能で使用する変数の格納場所を変更（ファイルパス:MainDTO、カスタマイズ変数:CustomDTO)
+ver0.6
+・[fix]Scrcpyのバージョンを3.0に更新
+・[fix]ウィンドウ画面を固定するように修正。
+・[feat]log.txtを追加
+ver0.5.2
+・[fix] カスタマイズ機能、「録画を開始する」と「全画面表示をする」にチェックを入れると、どちらも停止できない状況になるため録画を停止できるように修正。
 ver0.5.1 
 ・[docs]Readme更新
 ・[feat]録画をしている時に録画アイコンを表示するように変更。
 ・[fix refactor] 無線機能のソースコードをリファクタリングの実施。WirelessProcからプロセスを呼び出していたのをMainProcで呼び出すように修正、nullチェックも無くなる。
 ・[fix]スクリーンショット撮影方法変更adbコマンドで画像のバイナリーデータを取得し保存する。
 ・[fix]録画ファイル名称変更[MirrorApp] → [easymirror]
-ver0.5.2
-・[fix] カスタマイズ機能、「録画を開始する」と「全画面表示をする」にチェックを入れると、どちらも停止できない状況になるため録画を停止できるように修正。
-ver0.6
-・[fix]Scrcpyのバージョンを3.0に更新
-・[fix]ウィンドウ画面を固定するように修正。
-・[feat]log.txtを追加
+ver0.5
+・ベータ版公開
 
 </pre>
 
