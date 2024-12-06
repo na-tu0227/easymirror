@@ -15,22 +15,19 @@ namespace easymirror
     {
         private readonly ProcessManager processManager;
         private readonly Dictionary<string, string> commandDict;
+        private MainDTO mainDTO;
         private CommandList commandList;
       
-
-
-        private String adbPath = ".\\scrcpy\\adb.exe";
-        //private String scrcpyPath = ".\\scrcpy\\scrcpy.exe";
-        private String jsonPath = ".\\CommandList.json";
 
 
 
 
         public WirelessManager()
         {
+            mainDTO = new MainDTO();
             processManager = new ProcessManager();
             commandList = new CommandList();
-            commandDict = commandList.Commandget(jsonPath);
+            commandDict = commandList.Commandget(mainDTO.jsonPath);
 
 
 
@@ -39,7 +36,7 @@ namespace easymirror
         public string GetIPAddressADB(string deviceId)
         {
             // ADBコマンドで無線LANインターフェース(wlan0)の情報を取得
-            string adbOutput = processManager.StartWireless(adbPath, $"-s \"{deviceId}\" shell ip addr show wlan0");
+            string adbOutput = processManager.StartWireless(mainDTO.adbPath, $"-s \"{deviceId}\" shell ip addr show wlan0");
 
             // 正規表現でIPアドレスを抽出
             Regex ipRegex = new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b");
@@ -65,8 +62,8 @@ namespace easymirror
         {
 
             //無線接続の準備(TCP/IPポートの開放、Ipアドレスに紐づけ)
-            processManager.StartProcess(adbPath, $"tcpip 5555", redirectOutput: true);
-            processManager.StartProcess(adbPath, $"connect \"{ipAddress}\":5555", redirectOutput: true);
+            processManager.StartProcess(mainDTO.adbPath, $"tcpip 5555", redirectOutput: true);
+            processManager.StartProcess(mainDTO.adbPath, $"connect \"{ipAddress}\":5555", redirectOutput: true);
 
 
 
@@ -76,7 +73,7 @@ namespace easymirror
 
         public void WirelessDisconnect(string deviceId)
         {
-            processManager.StartProcess(adbPath, "disconnect", redirectOutput: true);
+            processManager.StartProcess(mainDTO.adbPath, "disconnect", redirectOutput: true);
         }
 
 

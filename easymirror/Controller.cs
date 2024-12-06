@@ -33,7 +33,7 @@ namespace easymirror
             this.deviceId = deviceId;
 
         }
-        public void GetCustomStart(MainProc mainProc,string deviceId,CustomDTO customDTO)
+        public void GetCustomStart(MainProc mainProc, string deviceId, CustomDTO customDTO)
         {
             this.mainProc = mainProc;
             this.deviceId = deviceId;
@@ -41,7 +41,7 @@ namespace easymirror
 
         }
 
-        
+
 
         public void StartFull(string deviceId)
         {
@@ -49,7 +49,6 @@ namespace easymirror
             FullscreenButton.BackgroundImage = Properties.Resources.縮小アイコン;
             ToolTip.SetToolTip(FullscreenButton, "縮小する");
             RecordButton.Enabled = false;
-            avMuteButton.Enabled = false;
             this.TopMost = true;
             this.deviceId = deviceId;
         }
@@ -71,7 +70,7 @@ namespace easymirror
 
         public void NoMirror()
         {
-            
+
             var dialogResult = MessageBox.Show("現在画面を隠して起動しています。解除する場合はOKを押してください。",
                                                "確認",
                                                MessageBoxButtons.OK,
@@ -79,14 +78,14 @@ namespace easymirror
                                                MessageBoxDefaultButton.Button1,
                                                MessageBoxOptions.DefaultDesktopOnly);
             if (dialogResult == DialogResult.OK)
-            { 
-                if(recordFlag == true)
+            {
+                if (recordFlag == true)
                 {
-                   ToggleRecordMode();
+                    ToggleRecordMode();
                 }
-                
+
                 mainProc.StartScrcpy(deviceId);
-                
+
                 this.Show();
             }
 
@@ -99,7 +98,7 @@ namespace easymirror
         //全画面表示
         private void FullscreenButtonClick(object sender, EventArgs e)
         {
-
+            mainProc.StopScrcpy();
             ToggleFullscreenMode();
 
         }
@@ -113,7 +112,7 @@ namespace easymirror
             main.Show();
 
             mainProc.StopScrcpy();
-            if(recordFlag == true)
+            if (recordFlag == true)
             {
                 MessageBox.Show("録画が終了しました。",
                                                 "録画",
@@ -133,6 +132,7 @@ namespace easymirror
         {
             if (e.KeyCode == Keys.Escape && fullscreenFlag)
             {
+                mainProc.StopScrcpy();
                 ToggleFullscreenMode();
             }
         }
@@ -150,7 +150,7 @@ namespace easymirror
 
 
         //スクリーンショット撮影
-        private  void  ScreenshotButtonClick(object sender, EventArgs e)
+        private void ScreenshotButtonClick(object sender, EventArgs e)
         {
 
             mainProc.Screenshot();
@@ -161,6 +161,7 @@ namespace easymirror
         private void RecordButtonClick(object sender, EventArgs e)
         {
 
+            mainProc.StopScrcpy();
             ToggleRecordMode();
 
         }
@@ -172,11 +173,20 @@ namespace easymirror
             this.Hide();
 
 
-            mainProc.StopScrcpy();
+           
 
             if (recordFlag)
             {
-                mainProc.StartScrcpy(deviceId); // 通常モードで再起動
+                if(customDTO != null)
+                {
+                    mainProc.CustomStart(deviceId, customDTO);
+                }
+                else
+                {
+                    mainProc.StartScrcpy(deviceId); 
+
+                }
+               
                 FullscreenButton.Enabled = true;
                 CustomSettingButton.Enabled = true;
                 avMuteButton.Enabled = true;
@@ -189,8 +199,18 @@ namespace easymirror
             }
             else
             {
-                // Scrcpyで録画を開始
-                mainProc.Recording(deviceId);
+                if (customDTO != null)
+                {
+                    mainProc.CustomRecordStart(deviceId, customDTO);
+                }
+                else
+                {
+                    // Scrcpyで録画を開始
+                    mainProc.Recording(deviceId);
+
+                }
+                
+                
                 FullscreenButton.Enabled = false;
                 CustomSettingButton.Enabled = false;
                 avMuteButton.Enabled = false;
@@ -215,23 +235,22 @@ namespace easymirror
             this.Hide();
 
 
-            mainProc.StopScrcpy();
-
-
-
             if (fullscreenFlag)
             {
-                if(customDTO != null)
+                if (customDTO != null)
                 {
-                    mainProc.CustomStart(deviceId,customDTO);
+                    customDTO.display = "";
+                    mainProc.CustomStart(deviceId, customDTO);
+
                 }
                 else
                 {
-                    mainProc.StartScrcpy(deviceId); // 通常モードで再起動
-
+                    mainProc.FullScreen(deviceId); // 通常モードで再起動
                 }
+
+
+
                 RecordButton.Enabled = true;
-                avMuteButton.Enabled = true;
                 FullscreenButton.BackgroundImage = Properties.Resources.全画面アイコン;
                 ToolTip.SetToolTip(FullscreenButton, "全画面表示");
                 this.TopMost = false;
@@ -240,9 +259,19 @@ namespace easymirror
             }
             else
             {
-                mainProc.FullScreen(deviceId);
+                if (customDTO != null)
+                {
+
+                    customDTO.display = "-f";
+                    mainProc.CustomStart(deviceId, customDTO);
+
+                }
+                else
+                {
+                    mainProc.FullScreen(deviceId); // 通常モードで再起動
+                }
                 RecordButton.Enabled = false;
-                avMuteButton.Enabled = false;
+
                 FullscreenButton.BackgroundImage = Properties.Resources.縮小アイコン;
                 ToolTip.SetToolTip(FullscreenButton, "縮小する");
                 this.TopMost = true;
@@ -255,7 +284,7 @@ namespace easymirror
             this.Show();
         }
 
-       
+
 
         private void CustomSetting_Click(object sender, EventArgs e)
         {
@@ -281,10 +310,17 @@ namespace easymirror
                                                 MessageBoxIcon.Information,
                                                 MessageBoxDefaultButton.Button1,
                                                 MessageBoxOptions.DefaultDesktopOnly);
-            if (dialogResult == DialogResult.OK) {
+            if (dialogResult == DialogResult.OK)
+            {
                 if (customDTO != null)
                 {
-                    mainProc.CustomStart(deviceId,customDTO);
+                    mainProc.CustomStart(deviceId, customDTO);
+
+                }
+                else if (fullscreenFlag == true)
+                {
+                    fullscreenFlag = false;
+                    ToggleFullscreenMode();
                 }
                 else
                 {
