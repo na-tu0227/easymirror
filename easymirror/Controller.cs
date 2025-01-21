@@ -245,7 +245,7 @@ namespace easymirror
                 }
                 else
                 {
-                    mainProc.FullScreen(deviceId); // 通常モードで再起動
+                    mainProc.StartScrcpy(deviceId); // 通常モードで再起動
                 }
 
 

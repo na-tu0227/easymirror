@@ -128,22 +128,22 @@ namespace easymirror
             processManager.LogMessage("start:Recording");
         }
 
-        //巻き戻し録画
-        public async void RewindRecorder()
-        {
+        ////巻き戻し録画
+        //public async void RewindRecorder()
+        //{
 
-            //await rewindRecorder.StartRecordingAsync();
+        //    //await rewindRecorder.StartRecordingAsync();
 
-        }
+        //}
 
-        public async void SaveRewindRecorder()
-        {
-            // 現在の日時でファイル名を作成
-            string fileName = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".mp4";
-            string filePath = Path.Combine(mainDTO.recPath, fileName);
-            //await rewindRecorder.SaveBufferedRecordingAsync(filePath);
-        }
-
+        //public async void SaveRewindRecorder()
+        //{
+        //    // 現在の日時でファイル名を作成
+        //    string fileName = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".mp4";
+        //    string filePath = Path.Combine(mainDTO.recPath, fileName);
+        //    //await rewindRecorder.SaveBufferedRecordingAsync(filePath);
+        //}
+        
 
         public void Screenshot()
         {
