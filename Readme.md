@@ -1,4 +1,4 @@
-# ■easymirror使用方法（Ver0.6.1）
+# ■easymirror使用方法（Ver0.6.2）
 ![コメント 2024-12-06 123058](https://github.com/user-attachments/assets/b250c3f9-1751-4e17-b27d-9b66f0e006f1)
 
 ## ■はじめに
