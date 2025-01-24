@@ -268,7 +268,7 @@ namespace easymirror
                 }
                 else
                 {
-                    mainProc.FullScreen(deviceId); // 通常モードで再起動
+                    mainProc.FullScreen(deviceId); 
                 }
                 RecordButton.Enabled = false;
 
@@ -293,8 +293,9 @@ namespace easymirror
 
             customSettingWindow.GetControllerMainProc(mainProc, deviceId, isWirelessInitialized, this);
 
-
             customSettingWindow.ShowDialog();
+           
+
 
 
         }

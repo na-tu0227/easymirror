@@ -94,10 +94,7 @@ namespace easymirror
             }
             else
             {
-                controller.GetCustomStart(mainProc, deviceId, customDTO);
-
-
-                controller.Show();
+               controller.Show();
 
             }
         }
