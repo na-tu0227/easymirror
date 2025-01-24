@@ -153,7 +153,7 @@ namespace easymirror
         private void ScreenshotButtonClick(object sender, EventArgs e)
         {
 
-            mainProc.Screenshot();
+            mainProc.Screenshot(deviceId);
         }
 
 

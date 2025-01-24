@@ -145,7 +145,7 @@ namespace easymirror
         //}
         
 
-        public void Screenshot()
+        public void Screenshot(string deviceId)
         {
             
             Process ssProcess = null;
@@ -153,7 +153,7 @@ namespace easymirror
             try
             {
                 // ADBコマンドを実行してスクリーンショットを取得
-                string adbCommand = "exec-out screencap -p";
+                string adbCommand = commandList.BuildCommand( commandDict,"-s", deviceId,"screen-shot");
 
                 ssProcess = processManager.StartProcess(mainDTO.adbPath, adbCommand, redirectOutput: true);
 
