@@ -27,7 +27,7 @@ namespace easymirror
         }
 
 
-        public void GetEasyStart(MainProc mainProc, string deviceId)
+        public void GetEasyStart(MainProc mainProc, string deviceId ,bool isWirelessInitialized)
         {
             this.mainProc = mainProc;
             this.deviceId = deviceId;

@@ -1,4 +1,4 @@
-# ■easymirror使用方法（Ver0.6.2）
+# ■easymirror使用方法（Ver0.6.3）
 ![コメント 2024-12-06 123058](https://github.com/user-attachments/assets/b250c3f9-1751-4e17-b27d-9b66f0e006f1)
 
 ## ■はじめに
@@ -145,6 +145,8 @@ Copyright (C) 2024 na_tu0227
 
 ## ■更新状況
 <pre>
+ver0.6.3
+・[fix]「無線接続を切断」ボタンがうまく機能しない不具合を修正。
 ver0.6.2
 ・[fix]Scrcpyのバージョンを3.1に更新
 ・[fix]複数の端末が接続されているとスクリーンショットがうまく機能しない不具合を修正

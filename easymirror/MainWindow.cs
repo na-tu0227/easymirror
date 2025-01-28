@@ -49,7 +49,7 @@ namespace easymirror
                 //deviceManagerでデバイスIdを取得し実行。
                 //Scrcpyとリモコンが表示される
                  mainProc.StartScrcpy(deviceId);
-                controller.GetEasyStart(mainProc, deviceId);  // MainProcとデバイスIdをControllerに渡す
+                controller.GetEasyStart(mainProc, deviceId,isWirelessInitialized);  // MainProcとデバイスIdをControllerに渡す
           
                 controller.Show();
             }
