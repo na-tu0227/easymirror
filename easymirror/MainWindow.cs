@@ -11,6 +11,7 @@ namespace easymirror
         private MainProc mainProc;
         private Controller controller;
         private DeviceManager deviceManager;
+        private bool isWirelessInitialized;
 
 
         //コンストラクター
@@ -43,8 +44,6 @@ namespace easymirror
             string deviceId = deviceManager.ShowDeviceSelectionForm(); // デバイス選択フォームの表示
 
        
-
-            //有線接続
             if (deviceManager.DeviceConnected() && !string.IsNullOrEmpty(deviceId))
             {
                 //deviceManagerでデバイスIdを取得し実行。
@@ -85,11 +84,17 @@ namespace easymirror
             this.Hide();
             CustomSettingWindow customSettingWindow = new CustomSettingWindow();
             bool MainWindowFlag = true;
-            customSettingWindow.MainwindowFlag(MainWindowFlag);
+            customSettingWindow.MainwindowFlag(MainWindowFlag, isWirelessInitialized);
             customSettingWindow.Show();
 
         }
 
-        
+        public void getWirelessInitialized(bool isWirelessInitialized)
+        {
+            this.isWirelessInitialized = isWirelessInitialized;
+        }
+
+
+
     }
 }

@@ -46,7 +46,7 @@ namespace easymirror
         //文字コードを統一するメソッド
         private static JsonSerializerOptions GetOption()
         {
-            // ユニコードのレンジ指定で日本語も正しく表示、インデントされるように指定
+            
             var options = new JsonSerializerOptions
             {
                 Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),

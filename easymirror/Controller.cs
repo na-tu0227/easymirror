@@ -33,11 +33,12 @@ namespace easymirror
             this.deviceId = deviceId;
 
         }
-        public void GetCustomStart(MainProc mainProc, string deviceId, CustomDTO customDTO)
+        public void GetCustomStart(MainProc mainProc, string deviceId, CustomDTO customDTO ,bool isWireless)
         {
             this.mainProc = mainProc;
             this.deviceId = deviceId;
             this.customDTO = customDTO;
+            this.isWirelessInitialized = isWireless;
 
         }
 
@@ -109,6 +110,7 @@ namespace easymirror
         private void ControllerFormClosing(object sender, FormClosingEventArgs e)
         {
             MainWindow main = new MainWindow();
+            main.getWirelessInitialized(isWirelessInitialized);
             main.Show();
 
             mainProc.StopScrcpy();
@@ -330,5 +332,6 @@ namespace easymirror
                 this.Show();
             }
         }
+
     }
 }

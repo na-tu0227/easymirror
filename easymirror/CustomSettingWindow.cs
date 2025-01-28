@@ -31,15 +31,17 @@ namespace easymirror
             mainProc = new MainProc();
             deviceManager = new DeviceManager();
             customDTO = new CustomDTO();
+            wirelessManager = new WirelessManager();
             errorProvider.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             InitializeComponent();
         }
 
 
         //MainwindowからFlagを取得
-        public void MainwindowFlag(bool isMainWindowAcces)
+        public void MainwindowFlag(bool isMainWindowAcces, bool isWirelessInitialized)
         {
             this.isMainWindowAccess = isMainWindowAcces;
+            this.isWirelessInitialized = isWirelessInitialized;
         }
 
 
@@ -69,7 +71,7 @@ namespace easymirror
             movieCodec.SelectedIndex = 0;
             audioCodec.SelectedIndex = 0;
 
-            if (isWirelessInitialized)
+            if (isWirelessInitialized == true)
             {
                 WirelessKillButton.Enabled = true;
                 WirelessButton.Checked = true;
@@ -89,6 +91,7 @@ namespace easymirror
             {
                 // メインウィンドウからアクセスされた場合はメインウィンドウを表示
                 MainWindow mainWindow = new MainWindow();
+                mainWindow.getWirelessInitialized(isWirelessInitialized);
                 mainWindow.Show();
                 isMainWindowAccess = false;
             }
@@ -306,7 +309,6 @@ namespace easymirror
                 WirelessKillButton.Enabled = false;
                 WirelessButton.Enabled = true;
                 WirelessButton.Checked = false;
-                wirelessManager = null;
                 isWirelessInitialized = false; // WirelessKill時に再初期化フラグをリセット
                 MessageBox.Show("無線接続を切断しました", "確認", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
             }
@@ -452,7 +454,7 @@ namespace easymirror
                 {
                     mainProc?.StopScrcpy();
                     mainProc?.AdbStop();
-                    wirelessManager = new WirelessManager();
+                    
 
                     // 初回IPアドレス取得
                     deviceId = wirelessManager.GetIPAddressADB(deviceId);
@@ -485,7 +487,7 @@ namespace easymirror
                     {
                         controller.NoMirror();
                     }
-                    controller.GetCustomStart(mainProc, deviceId, customDTO);
+                    controller.GetCustomStart(mainProc, deviceId, customDTO,isWirelessInitialized);
                     controller.Show();
 
                 }
@@ -521,7 +523,7 @@ namespace easymirror
                         controller.NoMirror();
                     }
 
-                    controller.GetCustomStart(mainProc, deviceId, customDTO);
+                    controller.GetCustomStart(mainProc, deviceId, customDTO, isWirelessInitialized);
                     controller.Show();
                 }
             }
@@ -555,7 +557,7 @@ namespace easymirror
                     mainProc.CustomStart(deviceId, customDTO);
 
                 }
-                controller.GetCustomStart(mainProc, deviceId, customDTO);  // MainProcとデバイスIdをControllerに渡す
+                controller.GetCustomStart(mainProc, deviceId, customDTO, isWirelessInitialized);  // MainProcとデバイスIdをControllerに渡す
                 if (customDTO.display.Equals("-f") && CustomRecordButton.Checked)
                 {
 
