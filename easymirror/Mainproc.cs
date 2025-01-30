@@ -158,10 +158,9 @@ namespace easymirror
                 ssProcess = processManager.StartProcess(mainDTO.adbPath, adbCommand, redirectOutput: true);
 
                 // スクリーンショットの保存フォルダーとファイルパスを設定
-                string ssFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, mainDTO.recPath);
-                Directory.CreateDirectory(ssFolderPath);
+               
                 string ssFileName = DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".png";
-                string ssPath = Path.Combine(ssFolderPath, ssFileName);
+                string ssPath = Path.Combine(mainDTO.recPath, ssFileName);
 
                 // バイナリデータをファイルに保存
                 using (var memoryStream = new MemoryStream())
