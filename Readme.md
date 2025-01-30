@@ -138,7 +138,7 @@ https://github.com/Genymobile/scrcpy
 
 
 ## ■著作権表示
-Copyright (C) 2024 na_tu0227
+Copyright (C) 2024 yml5100
 
 自分が書いた部分のソースコードは、MIT Licenseとします。
 
